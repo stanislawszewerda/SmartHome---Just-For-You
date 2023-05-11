@@ -1,4 +1,4 @@
-package com.example.inteligentny_dom_5
+package com.stanislawszewerda.inteligentny_dom_5
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "608561917913",
+    "firebase_url": "https://inteligentny-dom-5c538-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "inteligentny-dom-5c538",
+    "storage_bucket": "inteligentny-dom-5c538.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608561917913:android:a30c8db304f30ae43e33c8",
+        "android_client_info": {
+          "package_name": "com.stanislawszewerda.inteligentny_dom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608561917913-ao2tv5vmufjrdsfsf6irh2jtmull9s3o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1LfWx1-K_4iyLDdJ_xeYyhkuYWeRUTqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608561917913-ao2tv5vmufjrdsfsf6irh2jtmull9s3o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "608561917913-joveo8im8k0r6o1nliojt4rs51nor4is.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.stanislawszewerda.inteligentnyDom"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608561917913:android:0d3d9b0de2ee2b183e33c8",
+        "android_client_info": {
+          "package_name": "com.stanislawszewerda.inteligentny_dom_5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608561917913-ao2tv5vmufjrdsfsf6irh2jtmull9s3o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1LfWx1-K_4iyLDdJ_xeYyhkuYWeRUTqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608561917913-ao2tv5vmufjrdsfsf6irh2jtmull9s3o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "608561917913-joveo8im8k0r6o1nliojt4rs51nor4is.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.stanislawszewerda.inteligentnyDom"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
