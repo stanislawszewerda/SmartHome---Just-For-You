@@ -26,7 +26,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   TimeOfDay end = const TimeOfDay(hour: 0, minute: 0);
   TimeOfDay start = const TimeOfDay(hour: 0, minute: 0);
 
-  var freeId = 1;
+  var freeId = 11;
   var lol = 'domyslny teskt';
   bool? pn = false;
   bool? wt = false;
@@ -133,7 +133,10 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Container(
                   padding: const EdgeInsets.all(5),
                   child: const Text('Wybierz urządzenie')),
-              Container(
+             
+            ],
+          ),
+           Container(
                   padding: const EdgeInsets.all(5),
                   child: DropdownButton<String>(
                       value: dropdownValue,
@@ -146,9 +149,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                         setState(() {
                           dropdownValue = newValue ?? '';
                         });
-                      }))
-            ],
-          ),
+                      })),
           Row(
             children: [
               Container(
@@ -184,7 +185,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
           Row(
             children: [
               Container(
-                  padding: const EdgeInsets.all(5), child: const Text('od')),
+                  padding: const EdgeInsets.all(1), child: const Text('od')),
               TextButton(
                 onPressed: () async {
                   final selectedTime = await showTimePicker(
@@ -205,7 +206,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                 ),
               ),
               Container(
-                  padding: const EdgeInsets.all(5), child: const Text('do')),
+                  padding: const EdgeInsets.all(1), child: const Text('do')),
               TextButton(
                 onPressed: () async {
                   final selectedTime = await showTimePicker(
@@ -233,12 +234,12 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                   padding: const EdgeInsets.all(5),
                   child: const Text('CZAS START')),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(3),
                   child: Text(start.hour.toString())),
               Container(
                   padding: const EdgeInsets.all(5), child: const Text('h')),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(3),
                   child: Text(start.minute.toString())),
               Container(
                   padding: const EdgeInsets.all(5), child: const Text('min')),
@@ -269,7 +270,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('PN')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -288,7 +289,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('WT')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -307,7 +308,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('ŚR')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -326,7 +327,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('CZ')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -345,7 +346,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('PT')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -364,7 +365,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('SO')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -383,7 +384,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('ND')),
                   Container(
                     padding: const EdgeInsets.all(0),

@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
             image: DecorationImage(
                 // AssetImage - jest funkcjonalnością którą jakoś trzeba implementować w Pubspcec.Yaml!!!
                 // Fit: BoxFit.Cover umożliwia dociagniecie zdjecia do krawedzi ekranu
-                image: AssetImage('white_photo.jpg'),
+                image: AssetImage('photo1'),
                 fit: BoxFit.cover),
           ),
           child: Center(
@@ -242,7 +242,7 @@ Widget buildContainer(String itemCount, int index) => Row(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             color: Color.fromARGB(180, 86, 43, 167),
           ),
-          width: 400,
+          width: 250,
           height: 200,
           margin: const EdgeInsets.all(10.0),
           padding: const EdgeInsets.all(0.0),
@@ -258,7 +258,7 @@ Widget buildContainer(String itemCount, int index) => Row(
                     margin: const EdgeInsets.all(5.0),
                     padding: const EdgeInsets.all(20.0),
                     height: 60,
-                    width: 200,
+                    width: 95,
                     child: Text(itemCount),
                   ),
                   Container(
@@ -269,7 +269,7 @@ Widget buildContainer(String itemCount, int index) => Row(
                     margin: const EdgeInsets.all(5.0),
                     padding: const EdgeInsets.all(20.0),
                     height: 60,
-                    width: 175,
+                    width: 95,
                     child: const Text('Temperatura: 15st'),
                   ),
                 ],

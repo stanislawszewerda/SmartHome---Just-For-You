@@ -102,7 +102,7 @@ class _HeatPageState extends State<HeatPage> {
             // Get the data snapshot and convert it to a Map
             if (snapshot.hasData) {
               DataSnapshot dataSnapshot = snapshot.data!.snapshot;
-              Map<dynamic, dynamic>? data =
+              Map<String, dynamic>? data =
                   dataSnapshot.value as Map<String, dynamic>?;
 
               if (data != null) {
@@ -212,7 +212,7 @@ class _HeatPageState extends State<HeatPage> {
                                       Column(
                                         children: [
                                           Container(
-                                              padding: const EdgeInsets.all(5),
+                                              padding: const EdgeInsets.all(0),
                                               child: const Text('PN')),
                                           Container(
                                             padding: const EdgeInsets.all(0),
@@ -228,7 +228,7 @@ class _HeatPageState extends State<HeatPage> {
                                       Column(
                                         children: [
                                           Container(
-                                              padding: const EdgeInsets.all(5),
+                                              padding: const EdgeInsets.all(0),
                                               child: const Text('WT')),
                                           Container(
                                             padding: const EdgeInsets.all(0),
@@ -244,7 +244,7 @@ class _HeatPageState extends State<HeatPage> {
                                       Column(
                                         children: [
                                           Container(
-                                              padding: const EdgeInsets.all(5),
+                                              padding: const EdgeInsets.all(0),
                                               child: const Text('ŚR')),
                                           Container(
                                             padding: const EdgeInsets.all(0),
@@ -260,7 +260,7 @@ class _HeatPageState extends State<HeatPage> {
                                       Column(
                                         children: [
                                           Container(
-                                              padding: const EdgeInsets.all(5),
+                                              padding: const EdgeInsets.all(0),
                                               child: const Text('CZ')),
                                           Container(
                                             padding: const EdgeInsets.all(0),
@@ -276,7 +276,7 @@ class _HeatPageState extends State<HeatPage> {
                                       Column(
                                         children: [
                                           Container(
-                                              padding: const EdgeInsets.all(5),
+                                              padding: const EdgeInsets.all(0),
                                               child: const Text('PT')),
                                           Container(
                                             padding: const EdgeInsets.all(0),
@@ -292,7 +292,7 @@ class _HeatPageState extends State<HeatPage> {
                                       Column(
                                         children: [
                                           Container(
-                                              padding: const EdgeInsets.all(5),
+                                              padding: const EdgeInsets.all(0),
                                               child: const Text('SO')),
                                           Container(
                                             padding: const EdgeInsets.all(0),
@@ -308,7 +308,7 @@ class _HeatPageState extends State<HeatPage> {
                                       Column(
                                         children: [
                                           Container(
-                                              padding: const EdgeInsets.all(5),
+                                              padding: const EdgeInsets.all(0),
                                               child: const Text('ND')),
                                           Container(
                                             padding: const EdgeInsets.all(0),
