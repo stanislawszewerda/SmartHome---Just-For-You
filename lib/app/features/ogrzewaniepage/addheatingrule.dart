@@ -11,6 +11,8 @@ class AddHeatingRule extends StatefulWidget {
 
   @override
   State<AddHeatingRule> createState() => _AddHeatingRuleState();
+
+  
 }
 
 class _AddHeatingRuleState extends State<AddHeatingRule> {
@@ -20,7 +22,8 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   final TextEditingController _controller2 = TextEditingController();
   late StreamSubscription _streamSubscription;
 
-  double temperature = 25;
+  double doubletemperature = 25.00;
+  
   String startTime = '00:00';
   String endTime = '00:00';
   TimeOfDay end = const TimeOfDay(hour: 0, minute: 0);
@@ -88,7 +91,8 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   @override
   Widget build(BuildContext context) {
     final grzejnik1 = database.child('/Grzejnik1');
-
+    
+    int temperature = doubletemperature.round();
     double startdouble = start.hour +
         (start.minute /
             60); // format zmiennej jaki będzie można zapisać do bazy danych
@@ -168,10 +172,10 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
             ],
           ),
           Slider(
-            value: temperature,
-            onChanged: (double value) {
+            value: doubletemperature,
+            onChanged: (value) {
               setState(() {
-                temperature = value;
+                doubletemperature = value;
               });
             },
             min: 10.0,
