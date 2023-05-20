@@ -146,7 +146,7 @@ class HomePage extends StatelessWidget {
                           child: Column(
                             children: [
                               FloatingActionButton(
-                                  heroTag: "btn5",
+                                  heroTag: "btn6",
                                   onPressed: () {},
                                   child: const Icon(Icons.person)),
                               const SizedBox(

@@ -1,7 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:inteligentny_dom_5/app/features/ogrzewaniepage/getheatingrules.dart';
 import 'package:inteligentny_dom_5/app/features/ogrzewaniepage/hotorcold.dart';
+
 
 class HeatPage extends StatefulWidget {
   const HeatPage({
@@ -14,7 +16,7 @@ class HeatPage extends StatefulWidget {
 
 class _HeatPageState extends State<HeatPage> {
   final database = FirebaseDatabase.instance.ref();
-
+ 
   var id = 0;
   bool? pn = false;
   bool? wt = false;
@@ -34,7 +36,11 @@ class _HeatPageState extends State<HeatPage> {
   @override
   void initState() {
     super.initState();
+ 
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -91,9 +97,9 @@ class _HeatPageState extends State<HeatPage> {
 
             ),
       ),
-      body: StreamBuilder<DatabaseEvent>(
+      body: StreamBuilder(
         stream: grzejnik1.onValue,
-        builder: (BuildContext context, AsyncSnapshot<DatabaseEvent> snapshot) {
+        builder: (context , snapshot) {
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           } else if (!snapshot.hasData) {
@@ -102,8 +108,11 @@ class _HeatPageState extends State<HeatPage> {
             // Get the data snapshot and convert it to a Map
             if (snapshot.hasData) {
               DataSnapshot dataSnapshot = snapshot.data!.snapshot;
+              
               Map<String, dynamic>? data =
-                  dataSnapshot.value as Map<String, dynamic>?;
+               dataSnapshot.value as Map<String, dynamic>?;
+
+               //final data = Map<String, dynamic>.from(dataSnapshot.value! as Map<Object?, Object?>);
 
               if (data != null) {
                 // process the data
@@ -133,7 +142,7 @@ class _HeatPageState extends State<HeatPage> {
                   ));
                 });
               } else {
-                const Text('unexpected error');
+                return const Text('unexpected error');
               }
             }
 
