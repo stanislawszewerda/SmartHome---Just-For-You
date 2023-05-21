@@ -39,8 +39,10 @@ class _LightPageState extends State<LightPage> {
     
 
     return Scaffold(
-        drawer: const Drawer(),
+        //drawer: const Drawer(),
         appBar: AppBar(
+          
+          
           backgroundColor: const Color.fromARGB(255, 63, 63, 63),
           centerTitle: true,
           title: Center(
