@@ -56,7 +56,7 @@ class _LightPageState extends State<LightPage> {
                 padding: const EdgeInsets.all(0.0),
                 decoration: const BoxDecoration(
                     color: Color.fromRGBO(116, 116, 116, 0)),
-                child: const Text('Home ESP 32 status: online/offline'))
+                child: const Text(''))
           ])
 
               // sprawdzanie statusu online/offline - bedzie odbywać sie na zasadzie wysyłania informacji w jednej zmiennej
@@ -67,6 +67,7 @@ class _LightPageState extends State<LightPage> {
         body: Center(
           child: Column(
             children: [
+              
               Container(
                 margin: const EdgeInsets.all(20.0),
                 padding: const EdgeInsets.all(0.0),
@@ -74,91 +75,46 @@ class _LightPageState extends State<LightPage> {
                     color: Color.fromARGB(255, 116, 116, 116)),
                 child: Expanded(
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
+                      Expanded(
+                        child: Container(
+                            margin: const EdgeInsets.all(20.0),
+                            padding: const EdgeInsets.all(0.0),
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 116, 116, 116)),
+                            child: const Text('Światło w salonie', textAlign: TextAlign.center,)),
+                      ),
+                      Expanded(
+                        child: Container(
+                          width: 100,
+                          decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 116, 116, 116),
+                          ),
+                          child: buildSwitch(),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
                           margin: const EdgeInsets.all(20.0),
                           padding: const EdgeInsets.all(0.0),
                           decoration: const BoxDecoration(
                               color: Color.fromARGB(255, 116, 116, 116)),
-                          child: const Text('Światło w salonie')),
-                      Container(
-                        margin: const EdgeInsets.all(20.0),
-                        padding: const EdgeInsets.all(0.0),
-                        decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 116, 116, 116)),
-                        child: FloatingActionButton(
-                            heroTag: 'btn1',
-                            onPressed: () async {
-                              await salon.update({"swiatlo": on});
-                            },
-                            child: const Icon(Icons.power)),
+                          child: const Text('stan światła: ', textAlign: TextAlign.center,),
+                        ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.all(20.0),
-                        padding: const EdgeInsets.all(0.0),
-                        decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 116, 116, 116)),
-                        child: FloatingActionButton(
-                            heroTag: 'btn2',
-                            backgroundColor: const Color.fromARGB(255, 248, 4, 4),
-                            onPressed: () async {
-                              await salon.update({"swiatlo": off});
-                            },
-                            child: const Icon(Icons.power)),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(20.0),
-                        padding: const EdgeInsets.all(0.0),
-                        decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 116, 116, 116)),
-                        child: const Text('stan światła: '),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(0.0),
-                        padding: const EdgeInsets.all(0.0),
-                        decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 116, 116, 116)),
-                        child: Text(zarowka.toString()),
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.all(0.0),
+                          padding: const EdgeInsets.all(0.0),
+                          decoration: const BoxDecoration(
+                              color: Color.fromARGB(255, 116, 116, 116)),
+                          child: Text(zarowka.toString(), textAlign: TextAlign.center,),
+                        ),
                       ),
                     ],
                   ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.all(20.0),
-                padding: const EdgeInsets.all(0.0),
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 116, 116, 116)),
-                child: Row(
-                  children: [
-                    Container(
-                        margin: const EdgeInsets.all(20.0),
-                        padding: const EdgeInsets.all(0.0),
-                        decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 116, 116, 116)),
-                        child: const Text('Światło w salonie')),
-                    Container(
-                      width: 100,
-                      decoration: const BoxDecoration(
-                        color: Color.fromARGB(255, 116, 116, 116),
-                      ),
-                      child: buildSwitch(),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(20.0),
-                      padding: const EdgeInsets.all(0.0),
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 116, 116, 116)),
-                      child: const Text('stan światła: '),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(0.0),
-                      padding: const EdgeInsets.all(0.0),
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 116, 116, 116)),
-                      child: Text(zarowka.toString()),
-                    ),
-                  ],
                 ),
               ),
               Container(
