@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
             image: DecorationImage(
                 // AssetImage - jest funkcjonalnością którą jakoś trzeba implementować w Pubspcec.Yaml!!!
                 // Fit: BoxFit.Cover umożliwia dociagniecie zdjecia do krawedzi ekranu
-                image: AssetImage('photo1'),
+                image: AssetImage('assets/photo1.jpg'),
                 fit: BoxFit.cover),
           ),
           child: Center(
@@ -146,7 +146,7 @@ class HomePage extends StatelessWidget {
                           child: Column(
                             children: [
                               FloatingActionButton(
-                                  heroTag: "btn5",
+                                  heroTag: "btn6",
                                   onPressed: () {},
                                   child: const Icon(Icons.person)),
                               const SizedBox(

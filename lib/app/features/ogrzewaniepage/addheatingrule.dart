@@ -56,6 +56,9 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ponizej logika sprawdzenia ktore sloty sa wolne tj maja wartosc delete = false
+//
+
 
   void _activateListeners() {
     _streamSubscription = database.child('/Grzejnik1').onValue.listen((event) {
@@ -69,7 +72,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
           'delete': false,
           'id': -1
         }, // wartość domyślna, gdy nie znajdziemy żadnej mapy z delete=true
-        //lol
+        
       );
 
       if (firstDeletedMap['delete'] == true) {
@@ -78,7 +81,11 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
         freeId = 11;
 
       }
-
+      
+      // ponizszy setstate jest niepotrzebny // wykorzystac do sprawdzania pokrycia czasowego?
+      // porownujac ze zmiennymi globalnymi
+      // trzeba sprawdzac dla delete == false czyli dla aktywnych zasad
+      
       setState(() {
         final getDeletedId = GetDeletedId.fromRTDB(firstDeletedMap);
         lol = getDeletedId.fancyDiscription();
@@ -459,3 +466,8 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
     super.deactivate();
   }
 }
+
+
+
+
+// dopisac logike pokrywania sie czasowego

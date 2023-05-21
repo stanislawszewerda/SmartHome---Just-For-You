@@ -97,9 +97,9 @@ class _HeatPageState extends State<HeatPage> {
 
             ),
       ),
-      body: StreamBuilder(
+      body: StreamBuilder<DatabaseEvent>(
         stream: grzejnik1.onValue,
-        builder: (context , snapshot) {
+        builder: (BuildContext context , AsyncSnapshot<DatabaseEvent> snapshot) {
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           } else if (!snapshot.hasData) {
@@ -110,9 +110,7 @@ class _HeatPageState extends State<HeatPage> {
               DataSnapshot dataSnapshot = snapshot.data!.snapshot;
               
               Map<String, dynamic>? data =
-               dataSnapshot.value as Map<String, dynamic>?;
-
-               //final data = Map<String, dynamic>.from(dataSnapshot.value! as Map<Object?, Object?>);
+                dataSnapshot.value as Map<String, dynamic>?;
 
               if (data != null) {
                 // process the data
