@@ -33,10 +33,13 @@ class _HeatPageState extends State<HeatPage> {
   // int? end_time_minute = 0;
   // int i = 1;
 
+
+
+
   @override
   void initState() {
     super.initState();
- 
+    
   }
 
 
@@ -109,10 +112,10 @@ class _HeatPageState extends State<HeatPage> {
             if (snapshot.hasData) {
               DataSnapshot dataSnapshot = snapshot.data!.snapshot;
               
-              Map<String, dynamic>? data =
-               dataSnapshot.value as Map<String, dynamic>?;
+              //Map<String, dynamic>? data =
+              // dataSnapshot.value as Map<String, dynamic>?;
 
-               //final data = Map<String, dynamic>.from(dataSnapshot.value! as Map<Object?, Object?>);
+               final data = Map<String, dynamic>.from(dataSnapshot.value! as Map<Object?, Object?>);
 
               if (data != null) {
                 // process the data
@@ -135,7 +138,7 @@ class _HeatPageState extends State<HeatPage> {
                     endtimeminute: value['end_time_minute'] ?? 0,
                     starttimehour: value['start_time_hour'] ?? 0,
                     starttimeminute: value['start_time_minute'] ?? 0,
-                    temperature: value['temperature'] ?? 0.0,
+                    temperature: value['temperature'].toDouble() ?? 0.0,
                     startdouble: value['startdouble'] ?? 0.0,
                     enddouble: value['enddouble'] ?? 0.0,
                     id: value['id'] ?? 0,

@@ -15,7 +15,7 @@ class GetHeatingRule {
   final int endtimeminute;
   final int starttimehour;
   final int starttimeminute;
-  final double temperature;
+  final int temperature;
   final double startdouble;
   final double enddouble;
   final int id;
@@ -56,7 +56,7 @@ factory GetHeatingRule.fromRTDB(Map<String, dynamic> data){
                     endtimeminute: data['end_time_minute'] ?? 0,
                     starttimehour: data['start_time_hour'] ?? 0,
                     starttimeminute: data['start_time_minute'] ?? 0,
-                    temperature: data['temperature'] ?? 0.0,
+                    temperature: data['temperature'] ?? 0,
                     startdouble: data['startdouble'] ?? 0.0,
                     enddouble: data['enddouble'] ?? 0.0,
                     id: data['id'] ?? 0,

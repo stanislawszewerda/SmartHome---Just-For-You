@@ -62,7 +62,12 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
 
   void _activateListeners() {
     _streamSubscription = database.child('/Grzejnik1').onValue.listen((event) {
-      final data = event.snapshot.value as Map<String, dynamic>;
+      
+      //final data = event.snapshot.value as Map<String, dynamic>;
+      
+      final data = Map<String, dynamic>.from(event.snapshot.value! as Map<String, dynamic>);
+      
+
       final List<Map<String, dynamic>> mapsList =
           List<Map<String, dynamic>>.from(data.values);
 
@@ -86,10 +91,10 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
       // porownujac ze zmiennymi globalnymi
       // trzeba sprawdzac dla delete == false czyli dla aktywnych zasad
       
-      setState(() {
-        final getDeletedId = GetDeletedId.fromRTDB(firstDeletedMap);
-        lol = getDeletedId.fancyDiscription();
-      });
+      //setState(() {
+        //final getDeletedId = GetDeletedId.fromRTDB(firstDeletedMap);
+        //lol = getDeletedId.fancyDiscription();
+      //});
     });
   }
 

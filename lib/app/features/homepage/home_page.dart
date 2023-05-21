@@ -185,7 +185,8 @@ class HomePage extends StatelessWidget {
                             children: [
                               FloatingActionButton(
                                   heroTag: "btn3",
-                                  onPressed: () {
+                                  onPressed: () async{
+                                    await
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (_) => const LightPage()));
