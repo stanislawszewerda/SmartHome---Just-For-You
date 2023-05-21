@@ -86,15 +86,11 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
         freeId = 11;
 
       }
-      
-      // ponizszy setstate jest niepotrzebny // wykorzystac do sprawdzania pokrycia czasowego?
-      // porownujac ze zmiennymi globalnymi
-      // trzeba sprawdzac dla delete == false czyli dla aktywnych zasad
-      
-      //setState(() {
-        //final getDeletedId = GetDeletedId.fromRTDB(firstDeletedMap);
-        //lol = getDeletedId.fancyDiscription();
-      //});
+
+      setState(() {
+        final getDeletedId = GetDeletedId.fromRTDB(firstDeletedMap);
+        lol = getDeletedId.fancyDiscription();
+      });
     });
   }
 
