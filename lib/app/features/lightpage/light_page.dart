@@ -72,54 +72,56 @@ class _LightPageState extends State<LightPage> {
                 padding: const EdgeInsets.all(0.0),
                 decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 116, 116, 116)),
-                child: Row(
-                  children: [
-                    Container(
+                child: Expanded(
+                  child: Row(
+                    children: [
+                      Container(
+                          margin: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.all(0.0),
+                          decoration: const BoxDecoration(
+                              color: Color.fromARGB(255, 116, 116, 116)),
+                          child: const Text('Światło w salonie')),
+                      Container(
                         margin: const EdgeInsets.all(20.0),
                         padding: const EdgeInsets.all(0.0),
                         decoration: const BoxDecoration(
                             color: Color.fromARGB(255, 116, 116, 116)),
-                        child: const Text('Światło w salonie')),
-                    Container(
-                      margin: const EdgeInsets.all(20.0),
-                      padding: const EdgeInsets.all(0.0),
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 116, 116, 116)),
-                      child: FloatingActionButton(
-                          heroTag: 'btn1',
-                          onPressed: () async {
-                            await salon.update({"swiatlo": on});
-                          },
-                          child: const Icon(Icons.power)),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(20.0),
-                      padding: const EdgeInsets.all(0.0),
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 116, 116, 116)),
-                      child: FloatingActionButton(
-                          heroTag: 'btn2',
-                          backgroundColor: const Color.fromARGB(255, 248, 4, 4),
-                          onPressed: () async {
-                            await salon.update({"swiatlo": off});
-                          },
-                          child: const Icon(Icons.power)),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(20.0),
-                      padding: const EdgeInsets.all(0.0),
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 116, 116, 116)),
-                      child: const Text('stan światła: '),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(0.0),
-                      padding: const EdgeInsets.all(0.0),
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 116, 116, 116)),
-                      child: Text(zarowka.toString()),
-                    ),
-                  ],
+                        child: FloatingActionButton(
+                            heroTag: 'btn1',
+                            onPressed: () async {
+                              await salon.update({"swiatlo": on});
+                            },
+                            child: const Icon(Icons.power)),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(0.0),
+                        decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 116, 116, 116)),
+                        child: FloatingActionButton(
+                            heroTag: 'btn2',
+                            backgroundColor: const Color.fromARGB(255, 248, 4, 4),
+                            onPressed: () async {
+                              await salon.update({"swiatlo": off});
+                            },
+                            child: const Icon(Icons.power)),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(0.0),
+                        decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 116, 116, 116)),
+                        child: const Text('stan światła: '),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(0.0),
+                        padding: const EdgeInsets.all(0.0),
+                        decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 116, 116, 116)),
+                        child: Text(zarowka.toString()),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Container(
@@ -215,6 +217,8 @@ class _LightPageState extends State<LightPage> {
       (event) {
         final data = event.snapshot.value;
         if (data is Map<dynamic, dynamic>) {
+
+          
           final temperatura = data['temperatura'] as double?;
           final swiatlo = data['swiatlo'] as bool?;
           final grzalka = data['grzalka'] as bool?;

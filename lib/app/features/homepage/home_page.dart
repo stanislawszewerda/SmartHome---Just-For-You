@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
             image: DecorationImage(
                 // AssetImage - jest funkcjonalnością którą jakoś trzeba implementować w Pubspcec.Yaml!!!
                 // Fit: BoxFit.Cover umożliwia dociagniecie zdjecia do krawedzi ekranu
-                image: AssetImage('white_photo.jpg'),
+                image: AssetImage('assets/photo1.jpg'),
                 fit: BoxFit.cover),
           ),
           child: Center(
@@ -146,7 +146,7 @@ class HomePage extends StatelessWidget {
                           child: Column(
                             children: [
                               FloatingActionButton(
-                                  heroTag: "btn5",
+                                  heroTag: "btn6",
                                   onPressed: () {},
                                   child: const Icon(Icons.person)),
                               const SizedBox(
@@ -185,7 +185,8 @@ class HomePage extends StatelessWidget {
                             children: [
                               FloatingActionButton(
                                   heroTag: "btn3",
-                                  onPressed: () {
+                                  onPressed: () async{
+                                    await
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (_) => const LightPage()));
@@ -242,7 +243,7 @@ Widget buildContainer(String itemCount, int index) => Row(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             color: Color.fromARGB(180, 86, 43, 167),
           ),
-          width: 400,
+          width: 250,
           height: 200,
           margin: const EdgeInsets.all(10.0),
           padding: const EdgeInsets.all(0.0),
@@ -258,7 +259,7 @@ Widget buildContainer(String itemCount, int index) => Row(
                     margin: const EdgeInsets.all(5.0),
                     padding: const EdgeInsets.all(20.0),
                     height: 60,
-                    width: 200,
+                    width: 95,
                     child: Text(itemCount),
                   ),
                   Container(
@@ -269,7 +270,7 @@ Widget buildContainer(String itemCount, int index) => Row(
                     margin: const EdgeInsets.all(5.0),
                     padding: const EdgeInsets.all(20.0),
                     height: 60,
-                    width: 175,
+                    width: 95,
                     child: const Text('Temperatura: 15st'),
                   ),
                 ],

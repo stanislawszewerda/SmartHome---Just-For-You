@@ -20,13 +20,14 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   final TextEditingController _controller2 = TextEditingController();
   late StreamSubscription _streamSubscription;
 
-  double temperature = 25;
+  double doubletemperature = 25.00;
+
   String startTime = '00:00';
   String endTime = '00:00';
   TimeOfDay end = const TimeOfDay(hour: 0, minute: 0);
   TimeOfDay start = const TimeOfDay(hour: 0, minute: 0);
 
-  var freeId = 1;
+  var freeId = 11;
   var lol = 'domyslny teskt';
   bool? pn = false;
   bool? wt = false;
@@ -53,35 +54,75 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ponizej logika sprawdzenia ktore sloty sa wolne tj maja wartosc delete = false
+//
+
+  // void _activateListeners() {
+  //   _streamSubscription = database.child('/Grzejnik1').onValue.listen((event) {
+  //     //final data = event.snapshot.value as Map<String, dynamic>;
+  //     //final data = Map<String, dynamic>.from(event.snapshot.value as Map<String, dynamic>);
+  //     //final data = Map<Object?, Object?>.from(event.snapshot.value as Map<Object?, Object?>);
+  //     //final data = new Map<String, dynamic>.from(event.snapshot.value);
+      
+      
+  //     // powyższe konwersje nie działały, poniżej manualna konwersja
+
+  //     final dynamicValue = event.snapshot.value;
+  //     final data = <String, dynamic>{};
+  //     if (dynamicValue is Map<dynamic, dynamic>) {
+  //       dynamicValue.forEach((key, value) {
+  //         if (key is String) {
+  //           data[key] = value;
+  //         }
+  //       });
+  //     }
+
+  //     final List<Map<String, dynamic>> mapsList;
+  //          mapsList = List<Map<String, dynamic>>.from(data.values);
+  //          //mapsList = data.values.toList().cast<Map<String, dynamic>>();
+
+  //     Map<String, dynamic> firstDeletedMap = mapsList.firstWhere(
+  //       (map) => map['delete'] == true,
+  //       orElse: () => {
+  //         'delete': false,
+  //         'id': -1
+  //       }, // wartość domyślna, gdy nie znajdziemy żadnej mapy z delete=true
+  //     );
+
+  //     if (firstDeletedMap['delete'] == true) {
+  //       freeId = firstDeletedMap['id'];
+  //     } else {
+  //       freeId = 11;
+  //     }
+
+      
+  //   });
+  // }
+
 
   void _activateListeners() {
-    _streamSubscription = database.child('/Grzejnik1').onValue.listen((event) {
-      final data = event.snapshot.value as Map<String, dynamic>;
-      final List<Map<String, dynamic>> mapsList =
-          List<Map<String, dynamic>>.from(data.values);
+  _streamSubscription = database.child('/Grzejnik1').onValue.listen((event) {
+    final dynamicValue = event.snapshot.value;
+    final data = <String, dynamic>{};
+    
 
-      Map<String, dynamic> firstDeletedMap = mapsList.firstWhere(
-        (map) => map['delete'] == true,
-        orElse: () => {
-          'delete': false,
-          'id': -1
-        }, // wartość domyślna, gdy nie znajdziemy żadnej mapy z delete=true
-        //lol
-      );
+    if (dynamicValue is Map<dynamic, dynamic>) {
+      dynamicValue.forEach((key, value) {
+        if (key is String) {
+          data[key] = value;
 
-      if (firstDeletedMap['delete'] == true) {
-        freeId = firstDeletedMap['id'];
-      } else {
-        freeId = 11;
-
-      }
-
-      setState(() {
-        final getDeletedId = GetDeletedId.fromRTDB(firstDeletedMap);
-        lol = getDeletedId.fancyDiscription();
+          if (data[key]['delete'] == true) {
+            freeId = data[key]['id'];
+          }
+        }
       });
+    }
+
+    setState(() {
+      
     });
-  }
+  });
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -89,6 +130,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   Widget build(BuildContext context) {
     final grzejnik1 = database.child('/Grzejnik1');
 
+    int temperature = doubletemperature.round();
     double startdouble = start.hour +
         (start.minute /
             60); // format zmiennej jaki będzie można zapisać do bazy danych
@@ -133,22 +175,21 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Container(
                   padding: const EdgeInsets.all(5),
                   child: const Text('Wybierz urządzenie')),
-              Container(
-                  padding: const EdgeInsets.all(5),
-                  child: DropdownButton<String>(
-                      value: dropdownValue,
-                      items:
-                          items.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                            value: value, child: Text(value));
-                      }).toList(),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          dropdownValue = newValue ?? '';
-                        });
-                      }))
             ],
           ),
+          Container(
+              padding: const EdgeInsets.all(5),
+              child: DropdownButton<String>(
+                  value: dropdownValue,
+                  items: items.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                        value: value, child: Text(value));
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownValue = newValue ?? '';
+                    });
+                  })),
           Row(
             children: [
               Container(
@@ -167,10 +208,10 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
             ],
           ),
           Slider(
-            value: temperature,
-            onChanged: (double value) {
+            value: doubletemperature,
+            onChanged: (value) {
               setState(() {
-                temperature = value;
+                doubletemperature = value;
               });
             },
             min: 10.0,
@@ -184,7 +225,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
           Row(
             children: [
               Container(
-                  padding: const EdgeInsets.all(5), child: const Text('od')),
+                  padding: const EdgeInsets.all(1), child: const Text('od')),
               TextButton(
                 onPressed: () async {
                   final selectedTime = await showTimePicker(
@@ -205,7 +246,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                 ),
               ),
               Container(
-                  padding: const EdgeInsets.all(5), child: const Text('do')),
+                  padding: const EdgeInsets.all(1), child: const Text('do')),
               TextButton(
                 onPressed: () async {
                   final selectedTime = await showTimePicker(
@@ -233,12 +274,12 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                   padding: const EdgeInsets.all(5),
                   child: const Text('CZAS START')),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(3),
                   child: Text(start.hour.toString())),
               Container(
                   padding: const EdgeInsets.all(5), child: const Text('h')),
               Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(3),
                   child: Text(start.minute.toString())),
               Container(
                   padding: const EdgeInsets.all(5), child: const Text('min')),
@@ -269,7 +310,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('PN')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -288,7 +329,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('WT')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -307,7 +348,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('ŚR')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -326,7 +367,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('CZ')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -345,7 +386,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('PT')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -364,7 +405,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('SO')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -383,7 +424,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               Column(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(0),
                       child: const Text('ND')),
                   Container(
                     padding: const EdgeInsets.all(0),
@@ -407,34 +448,42 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
           ),
           Container(
               padding: const EdgeInsets.all(5), child: Text(errorMessage)),
-          Builder(
-            builder: (context) {
-              if(enddouble>startdouble){
-               if(freeId<11){return ElevatedButton(
-                onPressed: () async {
-                  setState(() {
-                    
-                    grzejnik1.child('/Zasada$freeId').update(map);
+          Builder(builder: (context) {
+            if (enddouble > startdouble) {
+              if (freeId < 11) {
+                return ElevatedButton(
+                  onPressed: () async {
+                    setState(() {
+                      grzejnik1.child('/Zasada$freeId').update(map);
+                      _streamSubscription.cancel();
 
-                    // w tym miejscu trzeba wstawić mechanizm decydujący do
-                    // której zasady dopisać nowe dane
-                    // oraz czy nie ma kolizji godzinowej z pozostałymi zasadami
-                  });
-                  Navigator.of(context).pop();
-                  
-                },
-                child: const Text('Dodaj Zasadę'),
-              );}else{
-                return const SizedBox(width: 250, child: Text('Osiągnięto maksymalną ilość zasad', textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)),));
+                      // w tym miejscu trzeba wstawić mechanizm decydujący do
+                      // której zasady dopisać nowe dane
+                      // oraz czy nie ma kolizji godzinowej z pozostałymi zasadami
+                    });
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('Dodaj Zasadę'),
+                );
+              } else {
+                return const SizedBox(
+                    width: 250,
+                    child: Text(
+                      'Osiągnięto maksymalną ilość zasad',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)),
+                    ));
               }
-              }else{
-                return const SizedBox(width: 250, child: Text('Czas zakończenia musi być późniejszy od czasu rozpoczecia', textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)),));
-              }
-              
-             
-              
+            } else {
+              return const SizedBox(
+                  width: 250,
+                  child: Text(
+                    'Czas zakończenia musi być późniejszy od czasu rozpoczecia',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)),
+                  ));
             }
-          ),
+          }),
         ],
       ),
       actions: [
@@ -454,3 +503,5 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
     super.deactivate();
   }
 }
+
+// dopisac logike pokrywania sie czasowego

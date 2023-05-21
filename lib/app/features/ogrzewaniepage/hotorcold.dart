@@ -27,6 +27,7 @@ class HotOrCold extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
+                  
                   backgroundColor: const Color.fromARGB(255, 255, 31, 31),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
