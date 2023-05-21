@@ -39,11 +39,7 @@ class _HeatPageState extends State<HeatPage> {
   @override
   void initState() {
     super.initState();
-<<<<<<< HEAD
     
-=======
- 
->>>>>>> 468fe0f637d3ea53143e9f34f1a864ea5524bb85
   }
 
 
@@ -116,17 +112,10 @@ class _HeatPageState extends State<HeatPage> {
             if (snapshot.hasData) {
               DataSnapshot dataSnapshot = snapshot.data!.snapshot;
               
-<<<<<<< HEAD
               //Map<String, dynamic>? data =
               // dataSnapshot.value as Map<String, dynamic>?;
 
                final data = Map<String, dynamic>.from(dataSnapshot.value! as Map<Object?, Object?>);
-=======
-              Map<String, dynamic>? data =
-               dataSnapshot.value as Map<String, dynamic>?;
-
-               //final data = Map<String, dynamic>.from(dataSnapshot.value! as Map<Object?, Object?>);
->>>>>>> 468fe0f637d3ea53143e9f34f1a864ea5524bb85
 
               if (data != null) {
                 // process the data
