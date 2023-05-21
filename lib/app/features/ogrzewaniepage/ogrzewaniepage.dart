@@ -138,7 +138,7 @@ class _HeatPageState extends State<HeatPage> {
                     endtimeminute: value['end_time_minute'] ?? 0,
                     starttimehour: value['start_time_hour'] ?? 0,
                     starttimeminute: value['start_time_minute'] ?? 0,
-                    temperature: value['temperature'].toDouble() ?? 0,
+                    temperature: value['temperature'] ?? 0,
                     startdouble: value['startdouble'] ?? 0.0,
                     enddouble: value['enddouble'] ?? 0.0,
                     id: value['id'] ?? 0,
