@@ -99,6 +99,15 @@ class _HeatPageState extends State<HeatPage> {
             // a odebrania takiej samej w innej w określonym czasie np. 10s
 
             ),
+            actions: [
+      IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () {
+          
+          Navigator.pop(context);
+        },
+      ),
+    ],
       ),
       body: StreamBuilder(
         stream: grzejnik1.onValue,
