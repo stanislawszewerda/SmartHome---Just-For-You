@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:inteligentny_dom_5/app/features/ogrzewaniepage/eksperymet.dart';
 import 'package:inteligentny_dom_5/app/features/ogrzewaniepage/getheatingrules.dart';
 
 class AddHeatingRule extends StatefulWidget {
@@ -21,14 +20,18 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   late StreamSubscription _streamSubscription;
 
   double doubletemperature = 25.00;
+  bool rulescolision = false;
 
   String startTime = '00:00';
   String endTime = '00:00';
   TimeOfDay end = const TimeOfDay(hour: 0, minute: 0);
   TimeOfDay start = const TimeOfDay(hour: 0, minute: 0);
+  double starttimedouble = 0.0;
+  double endtimedouble = 0.0;
+  
 
   var freeId = 11;
-  var lol = 'domyslny teskt';
+  //var lol = 'domyslny tekst';
   bool? pn = false;
   bool? wt = false;
   bool? sr = false;
@@ -51,13 +54,15 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   void initState() {
     super.initState();
     _activateListeners();
+    //_activateListeners2();
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ponizej logika sprawdzenia ktore sloty sa wolne tj maja wartosc delete = false
+// trzeba ją powtórzyć żeby
 //
 
-  // void _activateListeners() {
+  // void _activateListeners2() {
   //   _streamSubscription = database.child('/Grzejnik1').onValue.listen((event) {
   //     //final data = event.snapshot.value as Map<String, dynamic>;
   //     //final data = Map<String, dynamic>.from(event.snapshot.value as Map<String, dynamic>);
@@ -99,6 +104,8 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   //   });
   // }
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 
   void _activateListeners() {
   _streamSubscription = database.child('/Grzejnik1').onValue.listen((event) {
@@ -111,10 +118,45 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
         if (key is String) {
           data[key] = value;
 
-          if (data[key]['delete'] == true) {
+          if (data[key]['delete'] == true) { // znalezienie pierwszej zasady która jest usunięta
             freeId = data[key]['id'];
           }
+
+
+
+          // znalezienie zasady zawierającej poniedziałek
+    //     final mapsList = List<Map<String, dynamic>>.from(data.values);
+    //            Map<String, dynamic> poniedzialekMap= mapsList.firstWhere(
+    //      (map) => map['delete'] == true,
+    //     orElse: () => {
+           
+    //     }, // wartość domyślna, gdy nie znajdziemy żadnej mapy z delete=true
+    //  );
+
+    //  if (poniedzialekMap['delete'] == true) {
+    //     rulescolision = true;
+    //   } else {
+    //     return;
+    //    }
+       
+
+
         }
+        
+
+
+
+
+         // pokrywanie się godzin jeśli poniedziałek
+            // if (data[key]['pn'] == true) {
+            // if ((starttimedouble >= data[key]['start_time_double'] && starttimedouble <= data[key]['end_time_double'])||(endtimedouble >= data[key]['start_time_double'] && endtimedouble <= data[key]['end_time_double']) ){
+            //   rulescolision = true;
+            // }
+            // }else{return;}
+
+
+
+
       });
     }
 
@@ -137,6 +179,9 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
     double enddouble = end.hour +
         (end.minute /
             60); // format godziny jaki będzie można zapisać do bazy danych
+
+    starttimedouble = startdouble;
+    endtimedouble = enddouble;
 
     int starttimehour = start.hour;
     int endtimehour = end.hour;
@@ -209,7 +254,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                 // ok
               ],
             ),
-            Container(
+            SizedBox(
               width: 200,
               child: Slider(
                 value: doubletemperature,
@@ -490,28 +535,56 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
             ),
             Container(
                 padding: const EdgeInsets.all(5), child: Text(errorMessage)),
+
+            // Ponizej logika poprawności utworzonej zasady, gdzie teraz umieścić sprawdzenie pokrywania się zasad??
+
             Builder(builder: (context) {
-              if (enddouble > startdouble) {
-                if (freeId < 11) {
-                  return ElevatedButton(
+
+        
+              if (freeId < 11) { //sprawdzenie czy czas zakonczenia zasady jest pozniejszy niz czas rozpoczecia
+                if (enddouble > startdouble) { //sprawdzenie czy nie przekroczono maksymalnej ilosci zasad max10
+                  if (pn == true || wt == true || sr == true || cz == true || pt == true || so == true || nd == true){
+
+                   return ElevatedButton(
                     onPressed: () async {
-                      setState(() {
+                      
+                      //rule colision nie działa
+                      if(rulescolision == true){
+                        const AlertDialog(title: Text('Inna zasada już istnieje!'),content: Text('dla wybranych parametrów czasu określono wartość temperatury'),);
+                      }else{
+                        setState(() {
                         grzejnik1.child('/Zasada$freeId').update(map);
                         _streamSubscription.cancel();
       
+                        
+                      });
+                      Navigator.of(context).pop();
+                      }
                         // w tym miejscu trzeba wstawić mechanizm decydujący do
                         // której zasady dopisać nowe dane
                         // oraz czy nie ma kolizji godzinowej z pozostałymi zasadami
-                      });
-                      Navigator.of(context).pop();
+
+
+
+                      
                     },
                     child: const Text('Dodaj Zasadę'),
                   );
+                  }else{
+                    return const SizedBox(
+                      width: 250,
+                      child: Text(
+                        'Wybierz przynajmniej jeden dzień tygodnia obowiązywania zasady',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)),
+                      ));
+                  }
+                 
                 } else {
                   return const SizedBox(
                       width: 250,
                       child: Text(
-                        'Osiągnięto maksymalną ilość zasad',
+                        'Czas zakończenia musi być późniejszy od czasu rozpoczecia',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)),
                       ));
@@ -520,7 +593,8 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                 return const SizedBox(
                     width: 250,
                     child: Text(
-                      'Czas zakończenia musi być późniejszy od czasu rozpoczecia',
+                      'Osiągnięto maksymalną ilość zasad',
+                      
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)),
                     ));

@@ -33,9 +33,9 @@ class _LightPageState extends State<LightPage> {
 
   @override
   Widget build(BuildContext context) {
-    final salon = database.child('/Salon');
-    var on = true;
-    var off = false;
+    //final salon = database.child('/Salon');
+    //var on = true;
+    //var off = false;
     
 
     return Scaffold(

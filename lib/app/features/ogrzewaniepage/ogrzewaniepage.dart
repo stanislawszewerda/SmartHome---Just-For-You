@@ -101,7 +101,7 @@ class _HeatPageState extends State<HeatPage> {
             ),
             actions: [
       IconButton(
-        icon: Icon(Icons.arrow_back),
+        icon: const Icon(Icons.arrow_back),
         onPressed: () {
           
           Navigator.pop(context);
@@ -188,7 +188,7 @@ class _HeatPageState extends State<HeatPage> {
                             children: [
                               Container(
                                 padding: const EdgeInsets.all(5),
-                                child: Icon(
+                                child: const Icon(
   Icons.waves,
   size: 30,
   color: Colors.red,
@@ -244,7 +244,7 @@ class _HeatPageState extends State<HeatPage> {
                                       Container(
                                         
                                         height: 50,
-                                        padding: EdgeInsets.all(0),
+                                        padding: const EdgeInsets.all(0),
                                         child: 
                                   
                                   Expanded(
