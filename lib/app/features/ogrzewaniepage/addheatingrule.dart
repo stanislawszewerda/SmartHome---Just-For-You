@@ -65,11 +65,11 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
   bool pt = false;
   bool so = false;
   bool nd = false;
-  String test = 'lol';
+  String test = '';
 
   var pn1 = true;
 
-  String errorMessage = '';
+  
 
   List<String> items = <String>[
     'grzejnik - salon',
@@ -142,137 +142,141 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               var usedId = activeMap['id'];
               for (int id = 1; id <= 10; id++){
               if (usedId == id) {
-                if (activeMap['pn'] == true && pn == true) {
-                  // tutaj logika dotyczaca godziny
-                  if((starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
+                
+                  if
+                  ((activeMap['pn'] == true && pn == true)&&(
+                    (starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
                   (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
                   (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
                   (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
-
-                  ){ if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
-                    setState(() {
-                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
-                    return;
-                  });
+                  ))
                   
-                  
-                }}
-
-                 
-              }else if (activeMap['wt'] == true && wt == true) {
-                 // tutaj logika dotyczaca godziny
-                  if((starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
-                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
-
-                  ){ if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
+                  { if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
                     setState(() {
+                      rulescolision = true;
                     test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
                     
-                  }
-                  );
+                  });
                   return;
+                }
+                return;
+                }else
+                if
+                  ((activeMap['wt'] == true && wt == true)&&(
+                    (starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
+                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
+                  ))
                   
+                  { if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
+                    setState(() {
+                      rulescolision = true;
+                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
+                    
+                  });
+                  return;
+                }
+                return;
+                }else
+                if
+                  ((activeMap['sr'] == true && sr == true)&&(
+                    (starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
+                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
+                  ))
+                  
+                  { if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
+                    setState(() {
+                      rulescolision = true;
+                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
+                    
+                  });
+                  return;
+                }
+                return;
+                }else
+                if
+                  ((activeMap['cz'] == true && cz == true)&&(
+                    (starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
+                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
+                  ))
+                  
+                  { if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
+                    setState(() {
+                      rulescolision = true;
+                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
+                    
+                  });
+                  return;
+                }
+                return;
+                }else
+                if
+                  ((activeMap['pt'] == true && pt == true)&&(
+                    (starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
+                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
+                  ))
+                  
+                  { if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
+                    setState(() {
+                      rulescolision = true;
+                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
+                    
+                  });
+                  return;
+                }
+                return;
+                }else
+                if
+                  ((activeMap['so'] == true && so == true)&&(
+                    (starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
+                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
+                  ))
+                  
+                  { if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
+                    setState(() {
+                      rulescolision = true;
+                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
+                    
+                  });
+                  return;
+                }
+                return;
+                }else
+                if
+                  ((activeMap['nd'] == true && nd == true)&&(
+                    (starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
+                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
+                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
+                  ))
+                  
+                  { if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
+                    setState(() {
+                      rulescolision = true;
+                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
+                    
+                  });
+                  return;
                 }
                 return;
                 }
                 
-              }else
-               if (activeMap['sr'] == true && sr == true) {
-                   // tutaj logika dotyczaca godziny
-                  if((starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
-                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
 
-                  ){ if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
-                    setState(() {
-                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
-                    
-                  });
-                  return;
-                  
-                }
-                return;
-                }
-              }else
-               if (activeMap['cz'] == true && cz == true) {
-                  // tutaj logika dotyczaca godziny
-                  if((starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
-                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
-
-                  ){ if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
-                    setState(() {
-                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
-                    
-                  });
-                  return;
-                  
-                }
-                return;
-                }
-              }else
-               if (activeMap['pt'] == true && pt == true) {
-                // tutaj logika dotyczaca godziny
-                  if((starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
-                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
-
-                  ){ if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
-                    setState(() {
-                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
-                    
-                  });
-                  return;
-                  
-                  
-                }
-                return;
-                }
-              }else
-               if (activeMap['so'] == true && so == true) {
-                  // tutaj logika dotyczaca godziny
-                  if((starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
-                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
-
-                  ){ if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
-                    setState(() {
-                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
-                    
-                  });
-                  return;
-                  
-                }
-                return;
-                }
-              }else
-               if (activeMap['nd'] == true && nd == true) {
-                // tutaj logika dotyczaca godziny
-                  if((starttimedouble > activeMap['start_time_double'] && starttimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['start_time_double'] && endtimedouble < activeMap['end_time_double'])||
-                  (endtimedouble > activeMap['end_time_double'] && starttimedouble < activeMap['start_time_double'])||
-                  (endtimedouble == activeMap['end_time_double'])||(starttimedouble == activeMap['start_time_double'])
-
-                  ){ if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
-                    setState(() {
-                    test = 'zdeklarowane ramy czasowe występują już w zasadzie id$usedId';
-                    
-                  });
-                  return;
-                  
-                }
-                return;
-                }
-              }
+             
+               
               
               else{if(mounted){  //mounted jest potrzebne bo jak zamyka sie widget alert dialog to nie mozna wiecej ustawiac setstate
                     setState(() {
+                    rulescolision = false;
                     test = 'mozna dodac taka zasade';
                   });}
               
@@ -703,25 +707,30 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
               padding: const EdgeInsets.all(5),
               child: Text('zasada otrzyma id = $freeId'),
             ),
-            Container(
-                padding: const EdgeInsets.all(5), child: Text(errorMessage)),
+           
 
             // Ponizej logika poprawności utworzonej zasady, gdzie teraz umieścić sprawdzenie pokrywania się zasad??
 
+            
+            // do wcisniecia w builder
+            // Text('error1'),
+            // Text('error2'),
+            // Text('error3'),
+            
             Builder(builder: (context) {
-              if (freeId < 11) {
-                //sprawdzenie czy czas zakonczenia zasady jest pozniejszy niz czas rozpoczecia
-                if (enddouble > startdouble) {
-                  //sprawdzenie czy nie przekroczono maksymalnej ilosci zasad max10
-                  if (pn == true ||
-                      wt == true ||
-                      sr == true ||
-                      cz == true ||
-                      pt == true ||
-                      so == true ||
-                      nd == true) {
-                    return ElevatedButton(
-                      onPressed: () {
+            if((freeId < 11) && (enddouble > startdouble) && (pn == true ||
+                       wt == true ||
+                       sr == true ||
+                       cz == true ||
+                       pt == true ||
+                       so == true ||
+                       nd == true))
+                       {
+                        return ElevatedButton(
+                      
+                      onPressed:
+                      
+                      () {
                         //rule colision nie działa
                         _streamSubscription.cancel();
                         setState(() {
@@ -735,6 +744,41 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                       },
                       child: const Text('Dodaj Zasadę'),
                     );
+                       }else{return ElevatedButton(
+                      
+                      onPressed: (){null;},
+                      child: const Text('Dodaj Zasadę'),
+                      style: ElevatedButton.styleFrom(
+    // Customize the appearance of the disabled button
+    // For example, you can change the button's color
+    // or adjust the disabled text color
+    foregroundColor: Colors.white, backgroundColor: Colors.grey,
+    enableFeedback: false,
+    )
+                    );}
+
+
+            
+              
+            }),
+            Builder(builder: (context) {
+              if (enddouble > startdouble) {
+                //sprawdzenie czy czas zakonczenia zasady jest pozniejszy niz czas rozpoczecia
+                
+                if (freeId < 11) {
+                  //sprawdzenie czy nie przekroczono maksymalnej ilosci zasad max10
+                  if (pn == true ||
+                      wt == true ||
+                      sr == true ||
+                      cz == true ||
+                      pt == true ||
+                      so == true ||
+                      nd == true) {
+
+                        if(rulescolision == true){
+                         return Text(test, textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)));
+                        }else{ return const SizedBox();}
+                   
                   } else {
                     return const SizedBox(
                         width: 250,
@@ -748,26 +792,24 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                   return const SizedBox(
                       width: 250,
                       child: Text(
-                        'Czas zakończenia musi być późniejszy od czasu rozpoczecia',
+                        'Osiągnięto maksymalną ilość zasad',
+                        
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)),
                       ));
                 }
               } else {
+                
                 return const SizedBox(
                     width: 250,
                     child: Text(
-                      'Osiągnięto maksymalną ilość zasad',
+                      'Czas zakończenia musi być późniejszy od czasu rozpoczecia',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)),
                     ));
               }
             }),
-            Builder(builder: (context) {
-              
-                return Text(test);
-              
-            })
+          
           ],
         ),
       ),

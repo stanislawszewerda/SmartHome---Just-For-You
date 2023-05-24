@@ -179,11 +179,16 @@ class _HeatPageState extends State<HeatPage> {
                             children: [
                               Container(
                                 padding: const EdgeInsets.all(5),
-                                child: Icon(
+                                child: Column(
+                                  children: [
+                                    Icon(
   Icons.waves,
   size: 30,
   color: Colors.red,
-)
+),
+Text('ID: ${data.id}')
+                                  ],
+                                )
                               ),
                               Expanded(
                                 child: Column(
