@@ -99,15 +99,6 @@ class _HeatPageState extends State<HeatPage> {
             // a odebrania takiej samej w innej w określonym czasie np. 10s
 
             ),
-            actions: [
-      IconButton(
-        icon: const Icon(Icons.arrow_back),
-        onPressed: () {
-          
-          Navigator.pop(context);
-        },
-      ),
-    ],
       ),
       body: StreamBuilder(
         stream: grzejnik1.onValue,
@@ -188,7 +179,7 @@ class _HeatPageState extends State<HeatPage> {
                             children: [
                               Container(
                                 padding: const EdgeInsets.all(5),
-                                child: const Icon(
+                                child: Icon(
   Icons.waves,
   size: 30,
   color: Colors.red,
@@ -244,7 +235,7 @@ class _HeatPageState extends State<HeatPage> {
                                       Container(
                                         
                                         height: 50,
-                                        padding: const EdgeInsets.all(0),
+                                        padding: EdgeInsets.all(0),
                                         child: 
                                   
                                   Expanded(
@@ -289,8 +280,7 @@ class _HeatPageState extends State<HeatPage> {
                                                             grzejnik1
                                                                 .child('/Zasada$i')
                                                                 .update({'delete': true});
-                                                            // w tym miejscu trzeba wstawić mechanizm decydujący do której zasady dopisać nowe dane
-                                                            // oraz czy nie ma kolizji godzinowej z pozostałymi zasadami
+                                                            
                                                           });
                                                           Navigator.of(context).pop();
                                                         },
