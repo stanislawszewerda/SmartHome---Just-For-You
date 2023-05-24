@@ -77,6 +77,9 @@ class _HeatPageState extends State<HeatPage> {
       ),
       drawer: const Drawer(),
       appBar: AppBar(
+        actions: [IconButton(onPressed: () {
+        Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back))],
         backgroundColor: const Color.fromARGB(255, 63, 63, 63),
         centerTitle: true,
         title: Center(

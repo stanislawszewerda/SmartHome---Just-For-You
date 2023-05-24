@@ -134,6 +134,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
             ///
             ///TERAZ: wyszukaj wszystkie obowiązujące już zasady (pokaż ich id)
             ///Sprawdz czy jakakolwiek zasada pokrywa się w czasie z tą którą chce dodać użytkownik
+            ///PONIZSZY KOD ZROBIC PETLE PO DNIACH TYGODNIA ZEBY NIE PISAC 7 RAZY TO SAMO!!!
 
             List<Map<dynamic, dynamic>> activeMaps =
                 mapsList.where((map) => map['delete'] == false).toList();
