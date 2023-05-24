@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:inteligentny_dom_5/app/features/ogrzewaniepage/getheatingrules.dart';
 import 'package:inteligentny_dom_5/app/features/ogrzewaniepage/hotorcold.dart';
-
 
 class HeatPage extends StatefulWidget {
   const HeatPage({
@@ -16,7 +14,7 @@ class HeatPage extends StatefulWidget {
 
 class _HeatPageState extends State<HeatPage> {
   final database = FirebaseDatabase.instance.ref();
- 
+
   var id = 0;
   bool? pn = false;
   bool? wt = false;
@@ -33,17 +31,10 @@ class _HeatPageState extends State<HeatPage> {
   // int? end_time_minute = 0;
   // int i = 1;
 
-
-
-
   @override
   void initState() {
     super.initState();
-    
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -77,9 +68,13 @@ class _HeatPageState extends State<HeatPage> {
       ),
       drawer: const Drawer(),
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {
-        Navigator.pop(context);
-        }, icon: const Icon(Icons.arrow_back))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back))
+        ],
         backgroundColor: const Color.fromARGB(255, 63, 63, 63),
         centerTitle: true,
         title: Center(
@@ -105,7 +100,7 @@ class _HeatPageState extends State<HeatPage> {
       ),
       body: StreamBuilder(
         stream: grzejnik1.onValue,
-        builder: (context , snapshot) {
+        builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           } else if (!snapshot.hasData) {
@@ -114,42 +109,43 @@ class _HeatPageState extends State<HeatPage> {
             // Get the data snapshot and convert it to a Map
             if (snapshot.hasData) {
               DataSnapshot dataSnapshot = snapshot.data!.snapshot;
-              
+
               //Map<String, dynamic>? data =
               //dataSnapshot.value as Map<String, dynamic>?;
 
-               final data = Map<String, dynamic>.from(dataSnapshot.value! as Map<Object?, Object?>);
+              final data = Map<String, dynamic>.from(
+                  dataSnapshot.value! as Map<Object?, Object?>);
 
               //if (data != null) {
-                // process the data
-                // Clear the current list of data
-                myDataList.clear();
+              // process the data
+              // Clear the current list of data
+              myDataList.clear();
 
-                // Loop through the data and add it to the list
-                data.forEach((key, value) {
-                  myDataList.add(GetHeatingRule(
-                    delete: value['delete'] ?? false,
-                    pn: value['pn'] ?? false,
-                    wt: value['wt'] ?? false,
-                    sr: value['sr'] ?? false,
-                    cz: value['cz'] ?? false,
-                    pt: value['pt'] ?? false,
-                    so: value['so'] ?? false,
-                    nd: value['nd'] ?? false,
-                    on: value['on'] ?? false,
-                    endtimehour: value['end_time_hour'] ?? 0,
-                    endtimeminute: value['end_time_minute'] ?? 0,
-                    starttimehour: value['start_time_hour'] ?? 0,
-                    starttimeminute: value['start_time_minute'] ?? 0,
-                    temperature: value['temperature'] ?? 0,
-                    startdouble: value['startdouble'] ?? 0.0,
-                    enddouble: value['enddouble'] ?? 0.0,
-                    id: value['id'] ?? 0,
-                  ));
-                });
+              // Loop through the data and add it to the list
+              data.forEach((key, value) {
+                myDataList.add(GetHeatingRule(
+                  delete: value['delete'] ?? false,
+                  pn: value['pn'] ?? false,
+                  wt: value['wt'] ?? false,
+                  sr: value['sr'] ?? false,
+                  cz: value['cz'] ?? false,
+                  pt: value['pt'] ?? false,
+                  so: value['so'] ?? false,
+                  nd: value['nd'] ?? false,
+                  on: value['on'] ?? false,
+                  endtimehour: value['end_time_hour'] ?? 0,
+                  endtimeminute: value['end_time_minute'] ?? 0,
+                  starttimehour: value['start_time_hour'] ?? 0,
+                  starttimeminute: value['start_time_minute'] ?? 0,
+                  temperature: value['temperature'] ?? 0,
+                  startdouble: value['startdouble'] ?? 0.0,
+                  enddouble: value['enddouble'] ?? 0.0,
+                  id: value['id'] ?? 0,
+                ));
+              });
               //} else {
               //  return const Text('unexpected error');
-             // }
+              // }
             }
 
             // Return a ListView to display the data
@@ -168,160 +164,177 @@ class _HeatPageState extends State<HeatPage> {
                   String endTime = time2.format(context);
 
                   return ListTile(
-                    subtitle: Expanded(
-                      child: Container(
-                        width: 150,
+                    subtitle: 
+                        Container(
+                        
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           color: const Color.fromARGB(255, 133, 141, 255),
                         ),
                         padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
                         margin: const EdgeInsets.fromLTRB(5, 5, 40, 5),
-                        child: Expanded(
+                        
                           child: Row(
                             children: [
                               Container(
-                                padding: const EdgeInsets.all(5),
-                                child: Column(
-                                  children: [
-                                    Icon(
-  Icons.waves,
-  size: 30,
-  color: Colors.red,
-),
-Text('ID: ${data.id}')
-                                  ],
-                                )
-                              ),
+                                  padding: const EdgeInsets.all(5),
+                                  child: Column(
+                                    children: [
+                                      const Icon(
+                                        Icons.waves,
+                                        size: 30,
+                                        color: Colors.red,
+                                      ),
+                                      Text('ID: ${data.id}')
+                                    ],
+                                  )),
+                              ///////////////////////////////////////////////////////////
                               Expanded(
+                        
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
                                       children: [
                                         Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Row(
-                                              
-                                              
                                               children: [
                                                 Container(
-                                                    padding: const EdgeInsets.all(5),
-                                                    child:
-                                                        const Text('Utrzymuj temperaturę: ')),
-                                                Text(data.temperature.toString()),
+                                                    padding:
+                                                        const EdgeInsets.all(5),
+                                                    child: const Text(
+                                                        'Utrzymuj temperaturę: ')),
+                                                Text(data.temperature
+                                                    .toString()),
                                               ],
                                             ),
-                                             Container(
-                                                  padding: const EdgeInsets.all(5),
-                                                  child: const Text('W godzinach: '),
-                                                ),
+                                            Container(
+                                              padding: const EdgeInsets.all(5),
+                                              child:
+                                                  const Text('W godzinach: '),
+                                            ),
                                             Row(
                                               children: [
-                                               
                                                 Container(
-                                                  padding: const EdgeInsets.all(5),
+                                                  padding:
+                                                      const EdgeInsets.all(5),
                                                   child: const Text('od'),
                                                 ),
                                                 Container(
-                                                  padding: const EdgeInsets.all(5),
+                                                  padding:
+                                                      const EdgeInsets.all(5),
                                                   child: Text(startTime),
                                                 ),
                                                 Container(
-                                                  padding: const EdgeInsets.all(5),
+                                                  padding:
+                                                      const EdgeInsets.all(5),
                                                   child: const Text('do'),
                                                 ),
                                                 Container(
-                                                  padding: const EdgeInsets.all(5),
+                                                  padding:
+                                                      const EdgeInsets.all(5),
                                                   child: Text(endTime),
                                                 ),
                                               ],
                                             ),
                                           ],
                                         ),
-                                      Container(
-                                        
-                                        height: 50,
-                                        padding: EdgeInsets.all(0),
-                                        child: 
-                                  
-                                  Expanded(
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor: const Color.fromARGB(
-                                                  255,
-                                                  243,
-                                                  33,
-                                                  33), // set the background color here
+                                        Container(
+                                            height: 50,
+                                            padding: const EdgeInsets.all(0),
+                                            
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  ElevatedButton(
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                      backgroundColor: const Color
+                                                              .fromARGB(
+                                                          255,
+                                                          243,
+                                                          33,
+                                                          33), // set the background color here
+                                                    ),
+                                                    onPressed: () {
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext
+                                                            context) {
+                                                          return AlertDialog(
+                                                            title: const Text(
+                                                                'Jesteś pewien?'),
+                                                            content: const Text(
+                                                                'Czy napewno chcesz usunąć wybraną zasadę?'),
+                                                            actions: <Widget>[
+                                                              TextButton(
+                                                                child: const Text(
+                                                                    'Anuluj'),
+                                                                onPressed: () {
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .pop();
+                                                                },
+                                                              ),
+                                                              ElevatedButton(
+                                                                style: ElevatedButton
+                                                                    .styleFrom(
+                                                                  backgroundColor:
+                                                                      const Color
+                                                                              .fromARGB(
+                                                                          255,
+                                                                          243,
+                                                                          33,
+                                                                          33), // set the background color here
+                                                                ),
+                                                                child:
+                                                                    const Text(
+                                                                        'Usuń'),
+                                                                onPressed: () {
+                                                                  // Perform the action here
+                                                                  setState(() {
+                                                                    int i =
+                                                                        data.id;
+                                                                    grzejnik1
+                                                                        .child(
+                                                                            '/Zasada$i')
+                                                                        .update({
+                                                                      'delete':
+                                                                          true
+                                                                    });
+                                                                  });
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .pop();
+                                                                },
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                    child: const Icon(
+                                                      Icons.delete,
+                                                      size: 24,
+                                                      color: Color.fromARGB(
+                                                          255, 255, 255, 255),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                            onPressed: () {
-                                              showDialog(
-                                                context: context,
-                                                builder: (BuildContext context) {
-                                                  return AlertDialog(
-                                                    title: const Text('Jesteś pewien?'),
-                                                    content: const Text(
-                                                        'Czy napewno chcesz usunąć wybraną zasadę?'),
-                                                    actions: <Widget>[
-                                                      TextButton(
-                                                        child: const Text('Anuluj'),
-                                                        onPressed: () {
-                                                          Navigator.of(context).pop();
-                                                        },
-                                                      ),
-                                                      ElevatedButton(
-                                  
-                                                        style: ElevatedButton.styleFrom(
-                                                          backgroundColor: const Color
-                                                                  .fromARGB(255, 243, 33,
-                                                              33), // set the background color here
-                                                        ),
-                                                        child: const Text('Usuń'),
-                                                        onPressed: () {
-                                                          // Perform the action here
-                                                          setState(() {
-                                                            int i = data.id;
-                                                            grzejnik1
-                                                                .child('/Zasada$i')
-                                                                .update({'delete': true});
-                                                            
-                                                          });
-                                                          Navigator.of(context).pop();
-                                                        },
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                            },
-                                            child: const Icon(
-                                                                      Icons.delete,
-                                                                      size: 24,
-                                                                      color:
-                                                                          Color.fromARGB(255, 255, 255, 255),
-                                                                    ),),
                                       ],
                                     ),
-                                  )
-                              
-                                        
-                                        ),
-                                      
-                                      ],
-                                      
-                                    ),
-
                                     Container(
-                                          padding: const EdgeInsets.all(5),
-                                          child: const Text('Obowiązuje w: '),
-                                        ),
+                                      padding: const EdgeInsets.all(5),
+                                      child: const Text('Obowiązuje w: '),
+                                    ),
                                     Row(
                                       children: [
-                                        
                                         Expanded(
                                           child: Row(
                                             children: [
@@ -329,13 +342,19 @@ Text('ID: ${data.id}')
                                                 child: Column(
                                                   children: [
                                                     Container(
-                                                        padding: const EdgeInsets.all(0),
-                                                        child: const Text('PN')),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(0),
+                                                        child:
+                                                            const Text('PN')),
                                                     Container(
-                                                      padding: const EdgeInsets.all(0),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              0),
                                                       child: Checkbox(
                                                         value: data.pn,
-                                                        activeColor: const Color.fromARGB(
+                                                        activeColor: const Color
+                                                                .fromARGB(
                                                             255, 85, 202, 7),
                                                         onChanged: null,
                                                       ),
@@ -347,13 +366,19 @@ Text('ID: ${data.id}')
                                                 child: Column(
                                                   children: [
                                                     Container(
-                                                        padding: const EdgeInsets.all(0),
-                                                        child: const Text('WT')),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(0),
+                                                        child:
+                                                            const Text('WT')),
                                                     Container(
-                                                      padding: const EdgeInsets.all(0),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              0),
                                                       child: Checkbox(
                                                         value: data.wt,
-                                                        activeColor: const Color.fromARGB(
+                                                        activeColor: const Color
+                                                                .fromARGB(
                                                             255, 85, 202, 7),
                                                         onChanged: null,
                                                       ),
@@ -365,13 +390,19 @@ Text('ID: ${data.id}')
                                                 child: Column(
                                                   children: [
                                                     Container(
-                                                        padding: const EdgeInsets.all(0),
-                                                        child: const Text('ŚR')),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(0),
+                                                        child:
+                                                            const Text('ŚR')),
                                                     Container(
-                                                      padding: const EdgeInsets.all(0),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              0),
                                                       child: Checkbox(
                                                         value: data.sr,
-                                                        activeColor: const Color.fromARGB(
+                                                        activeColor: const Color
+                                                                .fromARGB(
                                                             255, 85, 202, 7),
                                                         onChanged: null,
                                                       ),
@@ -383,13 +414,19 @@ Text('ID: ${data.id}')
                                                 child: Column(
                                                   children: [
                                                     Container(
-                                                        padding: const EdgeInsets.all(0),
-                                                        child: const Text('CZ')),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(0),
+                                                        child:
+                                                            const Text('CZ')),
                                                     Container(
-                                                      padding: const EdgeInsets.all(0),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              0),
                                                       child: Checkbox(
                                                         value: data.cz,
-                                                        activeColor: const Color.fromARGB(
+                                                        activeColor: const Color
+                                                                .fromARGB(
                                                             255, 85, 202, 7),
                                                         onChanged: null,
                                                       ),
@@ -401,13 +438,19 @@ Text('ID: ${data.id}')
                                                 child: Column(
                                                   children: [
                                                     Container(
-                                                        padding: const EdgeInsets.all(0),
-                                                        child: const Text('PT')),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(0),
+                                                        child:
+                                                            const Text('PT')),
                                                     Container(
-                                                      padding: const EdgeInsets.all(0),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              0),
                                                       child: Checkbox(
                                                         value: data.pt,
-                                                        activeColor: const Color.fromARGB(
+                                                        activeColor: const Color
+                                                                .fromARGB(
                                                             255, 85, 202, 7),
                                                         onChanged: null,
                                                       ),
@@ -419,13 +462,19 @@ Text('ID: ${data.id}')
                                                 child: Column(
                                                   children: [
                                                     Container(
-                                                        padding: const EdgeInsets.all(0),
-                                                        child: const Text('SO')),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(0),
+                                                        child:
+                                                            const Text('SO')),
                                                     Container(
-                                                      padding: const EdgeInsets.all(0),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              0),
                                                       child: Checkbox(
                                                         value: data.so,
-                                                        activeColor: const Color.fromARGB(
+                                                        activeColor: const Color
+                                                                .fromARGB(
                                                             255, 85, 202, 7),
                                                         onChanged: null,
                                                       ),
@@ -437,13 +486,19 @@ Text('ID: ${data.id}')
                                                 child: Column(
                                                   children: [
                                                     Container(
-                                                        padding: const EdgeInsets.all(0),
-                                                        child: const Text('ND')),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(0),
+                                                        child:
+                                                            const Text('ND')),
                                                     Container(
-                                                      padding: const EdgeInsets.all(0),
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              0),
                                                       child: Checkbox(
                                                         value: data.nd,
-                                                        activeColor: const Color.fromARGB(
+                                                        activeColor: const Color
+                                                                .fromARGB(
                                                             255, 85, 202, 7),
                                                         onChanged: null,
                                                       ),
@@ -459,18 +514,18 @@ Text('ID: ${data.id}')
                                   ],
                                 ),
                               ),
-                              
                             ],
                           ),
-                        ),
+                        
                       ),
-                    ),
+                    
 
                     // tutaj odpowiednio rozmieścić dane
                   );
-                }if (data.delete == true) {
+                }
+                if (data.delete == true) {
                   return Container();
-                }else{
+                } else {
                   return Container();
                 }
               },

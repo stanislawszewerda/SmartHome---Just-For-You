@@ -69,55 +69,62 @@ class _LightPageState extends State<LightPage> {
         body: Center(
           child: Column(
             children: [
-              
+
+
               Container(
                 margin: const EdgeInsets.all(20.0),
                 padding: const EdgeInsets.all(0.0),
                 decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 116, 116, 116)),
-                child: Expanded(
-                  child: Row(
+                child: 
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Expanded(
-                        child: Container(
+                      
+                        Expanded(
+                          child: Container(
+                              margin: const EdgeInsets.all(20.0),
+                              padding: const EdgeInsets.all(0.0),
+                              decoration: const BoxDecoration(
+                                  color: Color.fromARGB(255, 116, 116, 116)),
+                              child: const Text('Światło w salonie', textAlign: TextAlign.center,)),
+                        ),
+                     
+                        Expanded(
+                          child: Container(
+                            width: 100,
+                            decoration: const BoxDecoration(
+                              color: Color.fromARGB(255, 116, 116, 116),
+                            ),
+                            child: buildSwitch(),
+                          ),
+                        ),
+                     
+                        Expanded(
+                          child: Container(
                             margin: const EdgeInsets.all(20.0),
                             padding: const EdgeInsets.all(0.0),
                             decoration: const BoxDecoration(
                                 color: Color.fromARGB(255, 116, 116, 116)),
-                            child: const Text('Światło w salonie', textAlign: TextAlign.center,)),
-                      ),
-                      Expanded(
-                        child: Container(
-                          width: 100,
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 116, 116, 116),
+                            child: const Text('stan światła: ', textAlign: TextAlign.center,),
                           ),
-                          child: buildSwitch(),
                         ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          margin: const EdgeInsets.all(20.0),
-                          padding: const EdgeInsets.all(0.0),
-                          decoration: const BoxDecoration(
-                              color: Color.fromARGB(255, 116, 116, 116)),
-                          child: const Text('stan światła: ', textAlign: TextAlign.center,),
+                      
+                      
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.all(0.0),
+                            padding: const EdgeInsets.all(0.0),
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 116, 116, 116)),
+                            child: Text(zarowka.toString(), textAlign: TextAlign.center,),
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          margin: const EdgeInsets.all(0.0),
-                          padding: const EdgeInsets.all(0.0),
-                          decoration: const BoxDecoration(
-                              color: Color.fromARGB(255, 116, 116, 116)),
-                          child: Text(zarowka.toString(), textAlign: TextAlign.center,),
-                        ),
-                      ),
+                      //),
                     ],
                   ),
-                ),
+                //),
               ),
               Container(
                 margin: const EdgeInsets.all(20.0),
@@ -126,19 +133,23 @@ class _LightPageState extends State<LightPage> {
                     color: Color.fromARGB(255, 116, 116, 116)),
                 child: Row(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(20.0),
-                      padding: const EdgeInsets.all(0.0),
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 116, 116, 116)),
-                      child: const Text('Temperatura z czujnika: '),
-                    ),
-                    Container(
+                    Expanded(
+                      child: Container(
                         margin: const EdgeInsets.all(20.0),
                         padding: const EdgeInsets.all(0.0),
                         decoration: const BoxDecoration(
                             color: Color.fromARGB(255, 116, 116, 116)),
-                        child: Text(numer.toString())),
+                        child: const Text('Temperatura z czujnika: '),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                          margin: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.all(0.0),
+                          decoration: const BoxDecoration(
+                              color: Color.fromARGB(255, 116, 116, 116)),
+                          child: Text(numer.toString())),
+                    ),
                   ],
                 ),
               ),
@@ -149,12 +160,14 @@ class _LightPageState extends State<LightPage> {
                     color: Color.fromARGB(255, 116, 116, 116)),
                 child: Row(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(20.0),
-                      padding: const EdgeInsets.all(0.0),
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 116, 116, 116)),
-                      child: const Text('Stan grzałki: '),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(0.0),
+                        decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 116, 116, 116)),
+                        child: const Text('Stan grzałki: '),
+                      ),
                     ),
                    
                   ],

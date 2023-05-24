@@ -465,54 +465,54 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                 ],
               ),
             ),
-            Container(
-              width: 300,
-              padding: const EdgeInsets.all(5),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                          padding: const EdgeInsets.all(5),
-                          child: const Text('CZAS START')),
-                      Container(
-                          padding: const EdgeInsets.all(3),
-                          child: Text(start.hour.toString())),
-                      Container(
-                          padding: const EdgeInsets.all(5),
-                          child: const Text('h')),
-                      Container(
-                          padding: const EdgeInsets.all(3),
-                          child: Text(start.minute.toString())),
-                      Container(
-                          padding: const EdgeInsets.all(5),
-                          child: const Text('min')),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                          padding: const EdgeInsets.all(5),
-                          child: const Text('CZAS STOP')),
-                      Container(
-                          padding: const EdgeInsets.all(5),
-                          child: Text(end.hour.toString())),
-                      Container(
-                          padding: const EdgeInsets.all(5),
-                          child: const Text('h')),
-                      Container(
-                          padding: const EdgeInsets.all(5),
-                          child: Text(end.minute.toString())),
-                      Container(
-                          padding: const EdgeInsets.all(5),
-                          child: const Text('min')),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            // Container(
+            //   width: 300,
+            //   padding: const EdgeInsets.all(5),
+            //   child: Column(
+            //     children: [
+            //       Row(
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         children: [
+            //           Container(
+            //               padding: const EdgeInsets.all(5),
+            //               child: const Text('CZAS START')),
+            //           Container(
+            //               padding: const EdgeInsets.all(3),
+            //               child: Text(start.hour.toString())),
+            //           Container(
+            //               padding: const EdgeInsets.all(5),
+            //               child: const Text('h')),
+            //           Container(
+            //               padding: const EdgeInsets.all(3),
+            //               child: Text(start.minute.toString())),
+            //           Container(
+            //               padding: const EdgeInsets.all(5),
+            //               child: const Text('min')),
+            //         ],
+            //       ),
+            //       Row(
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         children: [
+            //           Container(
+            //               padding: const EdgeInsets.all(5),
+            //               child: const Text('CZAS STOP')),
+            //           Container(
+            //               padding: const EdgeInsets.all(5),
+            //               child: Text(end.hour.toString())),
+            //           Container(
+            //               padding: const EdgeInsets.all(5),
+            //               child: const Text('h')),
+            //           Container(
+            //               padding: const EdgeInsets.all(5),
+            //               child: Text(end.minute.toString())),
+            //           Container(
+            //               padding: const EdgeInsets.all(5),
+            //               child: const Text('min')),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
 
             Container(
                 padding: const EdgeInsets.all(5),
@@ -522,187 +522,201 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                 )),
             Container(
               padding: const EdgeInsets.all(0),
-              child: Expanded(
+              
                 child: Row(
                   children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Container(
+                    
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                                padding: const EdgeInsets.all(0),
+                                child: const Text('PN',
+                                    style: TextStyle(fontSize: 15))),
+                            Container(
                               padding: const EdgeInsets.all(0),
-                              child: const Text('PN',
-                                  style: TextStyle(fontSize: 15))),
-                          Container(
-                            padding: const EdgeInsets.all(0),
-                            child: Checkbox(
-                              value: pn,
-                              activeColor:
-                                  const Color.fromARGB(255, 85, 202, 7),
-                              onChanged: (newBool) {
-                                setState(() {
-                                  if (newBool != null) {
-                                    pn = newBool;
-                                  }
-                                });
-                              },
-                            ),
-                          )
-                        ],
+                              child: Checkbox(
+                                value: pn,
+                                activeColor:
+                                    const Color.fromARGB(255, 85, 202, 7),
+                                onChanged: (newBool) {
+                                  setState(() {
+                                    if (newBool != null) {
+                                      pn = newBool;
+                                    }
+                                  });
+                                },
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Container(
+                    
+                    
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                                padding: const EdgeInsets.all(0),
+                                child: const Text('WT',
+                                    style: TextStyle(fontSize: 15))),
+                            Container(
                               padding: const EdgeInsets.all(0),
-                              child: const Text('WT',
-                                  style: TextStyle(fontSize: 15))),
-                          Container(
-                            padding: const EdgeInsets.all(0),
-                            child: Checkbox(
-                              value: wt,
-                              activeColor:
-                                  const Color.fromARGB(255, 85, 202, 7),
-                              onChanged: (newBool) {
-                                setState(() {
-                                  if (newBool != null) {
-                                    wt = newBool;
-                                  }
-                                });
-                              },
-                            ),
-                          )
-                        ],
+                              child: Checkbox(
+                                value: wt,
+                                activeColor:
+                                    const Color.fromARGB(255, 85, 202, 7),
+                                onChanged: (newBool) {
+                                  setState(() {
+                                    if (newBool != null) {
+                                      wt = newBool;
+                                    }
+                                  });
+                                },
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Container(
+                    
+                    
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                                padding: const EdgeInsets.all(0),
+                                child: const Text('ŚR',
+                                    style: TextStyle(fontSize: 15))),
+                            Container(
                               padding: const EdgeInsets.all(0),
-                              child: const Text('ŚR',
-                                  style: TextStyle(fontSize: 15))),
-                          Container(
-                            padding: const EdgeInsets.all(0),
-                            child: Checkbox(
-                              value: sr,
-                              activeColor:
-                                  const Color.fromARGB(255, 85, 202, 7),
-                              onChanged: (newBool) {
-                                setState(() {
-                                  if (newBool != null) {
-                                    sr = newBool;
-                                  }
-                                });
-                              },
-                            ),
-                          )
-                        ],
+                              child: Checkbox(
+                                value: sr,
+                                activeColor:
+                                    const Color.fromARGB(255, 85, 202, 7),
+                                onChanged: (newBool) {
+                                  setState(() {
+                                    if (newBool != null) {
+                                      sr = newBool;
+                                    }
+                                  });
+                                },
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Container(
+                    
+                    
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                                padding: const EdgeInsets.all(0),
+                                child: const Text('CZ',
+                                    style: TextStyle(fontSize: 15))),
+                            Container(
                               padding: const EdgeInsets.all(0),
-                              child: const Text('CZ',
-                                  style: TextStyle(fontSize: 15))),
-                          Container(
-                            padding: const EdgeInsets.all(0),
-                            child: Checkbox(
-                              value: cz,
-                              activeColor:
-                                  const Color.fromARGB(255, 85, 202, 7),
-                              onChanged: (newBool) {
-                                setState(() {
-                                  if (newBool != null) {
-                                    cz = newBool;
-                                  }
-                                });
-                              },
-                            ),
-                          )
-                        ],
+                              child: Checkbox(
+                                value: cz,
+                                activeColor:
+                                    const Color.fromARGB(255, 85, 202, 7),
+                                onChanged: (newBool) {
+                                  setState(() {
+                                    if (newBool != null) {
+                                      cz = newBool;
+                                    }
+                                  });
+                                },
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Container(
+                    
+                    
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                                padding: const EdgeInsets.all(0),
+                                child: const Text('PT',
+                                    style: TextStyle(fontSize: 15))),
+                            Container(
                               padding: const EdgeInsets.all(0),
-                              child: const Text('PT',
-                                  style: TextStyle(fontSize: 15))),
-                          Container(
-                            padding: const EdgeInsets.all(0),
-                            child: Checkbox(
-                              value: pt,
-                              activeColor:
-                                  const Color.fromARGB(255, 85, 202, 7),
-                              onChanged: (newBool) {
-                                setState(() {
-                                  if (newBool != null) {
-                                    pt = newBool;
-                                  }
-                                });
-                              },
-                            ),
-                          )
-                        ],
+                              child: Checkbox(
+                                value: pt,
+                                activeColor:
+                                    const Color.fromARGB(255, 85, 202, 7),
+                                onChanged: (newBool) {
+                                  setState(() {
+                                    if (newBool != null) {
+                                      pt = newBool;
+                                    }
+                                  });
+                                },
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Container(
+                    
+                    
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                                padding: const EdgeInsets.all(0),
+                                child: const Text('SO',
+                                    style: TextStyle(fontSize: 15))),
+                            Container(
                               padding: const EdgeInsets.all(0),
-                              child: const Text('SO',
-                                  style: TextStyle(fontSize: 15))),
-                          Container(
-                            padding: const EdgeInsets.all(0),
-                            child: Checkbox(
-                              value: so,
-                              activeColor:
-                                  const Color.fromARGB(255, 85, 202, 7),
-                              onChanged: (newBool) {
-                                setState(() {
-                                  if (newBool != null) {
-                                    so = newBool;
-                                  }
-                                });
-                              },
-                            ),
-                          )
-                        ],
+                              child: Checkbox(
+                                value: so,
+                                activeColor:
+                                    const Color.fromARGB(255, 85, 202, 7),
+                                onChanged: (newBool) {
+                                  setState(() {
+                                    if (newBool != null) {
+                                      so = newBool;
+                                    }
+                                  });
+                                },
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Container(
+                    
+                    
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                                padding: const EdgeInsets.all(0),
+                                child: const Text('ND',
+                                    style: TextStyle(fontSize: 15))),
+                            Container(
                               padding: const EdgeInsets.all(0),
-                              child: const Text('ND',
-                                  style: TextStyle(fontSize: 15))),
-                          Container(
-                            padding: const EdgeInsets.all(0),
-                            child: Checkbox(
-                              value: nd,
-                              activeColor:
-                                  const Color.fromARGB(255, 85, 202, 7),
-                              onChanged: (newBool) {
-                                setState(() {
-                                  if (newBool != null) {
-                                    nd = newBool;
-                                  }
-                                });
-                              },
+                              child: Checkbox(
+                                value: nd,
+                                activeColor:
+                                    const Color.fromARGB(255, 85, 202, 7),
+                                onChanged: (newBool) {
+                                  setState(() {
+                                    if (newBool != null) {
+                                      nd = newBool;
+                                    }
+                                  });
+                                },
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
+                    
                   ],
                 ),
-              ),
+              
             ),
             Container(
               padding: const EdgeInsets.all(5),
@@ -719,7 +733,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
             // Text('error3'),
             
             Builder(builder: (context) {
-            if((freeId < 11) && (enddouble > startdouble) && (pn == true ||
+            if((rulescolision == false) && (freeId < 11) && (enddouble > startdouble) && (pn == true ||
                        wt == true ||
                        sr == true ||
                        cz == true ||
@@ -748,20 +762,22 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                        }else{return ElevatedButton(
                       
                       onPressed: (){null;},
-                      child: const Text('Dodaj Zasadę'),
                       style: ElevatedButton.styleFrom(
     // Customize the appearance of the disabled button
     // For example, you can change the button's color
     // or adjust the disabled text color
     foregroundColor: Colors.white, backgroundColor: Colors.grey,
     enableFeedback: false,
-    )
+    ),
+                      child: const Text('Dodaj Zasadę')
                     );}
 
 
             
               
             }),
+
+
             Builder(builder: (context) {
               if (enddouble > startdouble) {
                 //sprawdzenie czy czas zakonczenia zasady jest pozniejszy niz czas rozpoczecia
@@ -777,7 +793,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                       nd == true) {
 
                         if(rulescolision == true){
-                         return Text(test, textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(255, 0, 0, 1)));
+                         return Text(test, textAlign: TextAlign.center, style: const TextStyle(color: Color.fromRGBO(255, 0, 0, 1)));
                         }else{ return const SizedBox();}
                    
                   } else {
