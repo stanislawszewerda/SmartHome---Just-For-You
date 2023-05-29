@@ -19,7 +19,10 @@ class _LightPageState extends State<LightPage> {
   bool? zarowka;
   // chyba nie powinno się używać get, sprawdź jak zrobić to inaczej
   var value = false;
+
   var grzanie = false;
+  var swiatlokuchnia = false;
+  var swiatlolazienka = false;
   get salon => database.child('/Salon');
   
 
@@ -126,6 +129,124 @@ class _LightPageState extends State<LightPage> {
                   ),
                 //),
               ),
+
+              Container(
+                margin: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(0.0),
+                decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 116, 116, 116)),
+                child: 
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      
+                        Expanded(
+                          child: Container(
+                              margin: const EdgeInsets.all(20.0),
+                              padding: const EdgeInsets.all(0.0),
+                              decoration: const BoxDecoration(
+                                  color: Color.fromARGB(255, 116, 116, 116)),
+                              child: const Text('Światło w kuchni', textAlign: TextAlign.center,)),
+                        ),
+                     
+                        Expanded(
+                          child: Container(
+                            width: 100,
+                            decoration: const BoxDecoration(
+                              color: Color.fromARGB(255, 116, 116, 116),
+                            ),
+                            child: buildSwitch2(),
+                          ),
+                        ),
+                     
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.all(20.0),
+                            padding: const EdgeInsets.all(0.0),
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 116, 116, 116)),
+                            child: const Text('stan światła: ', textAlign: TextAlign.center,),
+                          ),
+                        ),
+                      
+                      
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.all(0.0),
+                            padding: const EdgeInsets.all(0.0),
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 116, 116, 116)),
+                            child: Text(swiatlokuchnia.toString(), textAlign: TextAlign.center,),
+                          ),
+                        ),
+                      //),
+                    ],
+                  ),
+                //),
+              ),
+
+
+              Container(
+                margin: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(0.0),
+                decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 116, 116, 116)),
+                child: 
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      
+                        Expanded(
+                          child: Container(
+                              margin: const EdgeInsets.all(20.0),
+                              padding: const EdgeInsets.all(0.0),
+                              decoration: const BoxDecoration(
+                                  color: Color.fromARGB(255, 116, 116, 116)),
+                              child: const Text('Światło w łazience', textAlign: TextAlign.center,)),
+                        ),
+                     
+                        Expanded(
+                          child: Container(
+                            width: 100,
+                            decoration: const BoxDecoration(
+                              color: Color.fromARGB(255, 116, 116, 116),
+                            ),
+                            child: buildSwitch3(),
+                          ),
+                        ),
+                     
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.all(20.0),
+                            padding: const EdgeInsets.all(0.0),
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 116, 116, 116)),
+                            child: const Text('stan światła: ', textAlign: TextAlign.center,),
+                          ),
+                        ),
+                      
+                      
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.all(0.0),
+                            padding: const EdgeInsets.all(0.0),
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 116, 116, 116)),
+                            child: Text(swiatlolazienka.toString(), textAlign: TextAlign.center,),
+                          ),
+                        ),
+                      //),
+                    ],
+                  ),
+                //),
+              ),
+
+
+
+
+
               Container(
                 margin: const EdgeInsets.all(20.0),
                 padding: const EdgeInsets.all(0.0),
@@ -169,6 +290,15 @@ class _LightPageState extends State<LightPage> {
                         child: const Text('Stan grzałki: '),
                       ),
                     ),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(0.0),
+                        decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 116, 116, 116)),
+                        child: Text(grzanie.toString()),
+                      ),
+                    ),
                    
                   ],
                 ),
@@ -193,11 +323,15 @@ class _LightPageState extends State<LightPage> {
           final temperatura = data['temperatura'] as double?;
           final swiatlo = data['swiatlo'] as bool?;
           final grzalka = data['grzalka'] as bool?;
+          final swiatlokuchniaget = data["swiatlo_kuchnia"] as bool?;
+          final swiatlolazienkaget = data["swiatlo_lazienka"] as bool?;
           setState(() {
             numer = temperatura;
             zarowka = swiatlo;
             value = swiatlo!;
             grzanie = grzalka!;
+            swiatlokuchnia = swiatlokuchniaget!;
+            swiatlolazienka = swiatlolazienkaget!;
           });
         }
       },
@@ -217,6 +351,40 @@ class _LightPageState extends State<LightPage> {
           salon.update({"swiatlo": value});
         },
       );
+
+
+
+       Widget buildSwitch2() => Switch.adaptive(
+        activeColor: const Color.fromARGB(255, 105, 130, 240),
+        inactiveThumbColor: const Color.fromARGB(132, 255, 255, 255),
+        inactiveTrackColor: const Color.fromARGB(132, 255, 255, 255),
+        value: swiatlokuchnia,
+        onChanged: (swiatlokuchnia) async {
+          setState(() {
+            swiatlokuchnia = swiatlokuchnia;
+          });
+          await Future.delayed(const Duration(milliseconds: 100));
+          salon.update({"swiatlo_kuchnia": swiatlokuchnia});
+        },
+      );
+
+        Widget buildSwitch3() => Switch.adaptive(
+        activeColor: const Color.fromARGB(255, 105, 130, 240),
+        inactiveThumbColor: const Color.fromARGB(132, 255, 255, 255),
+        inactiveTrackColor: const Color.fromARGB(132, 255, 255, 255),
+        value: swiatlolazienka,
+        onChanged: (swiatlolazienka) async {
+          setState(() {
+            swiatlolazienka = swiatlolazienka;
+          });
+          await Future.delayed(const Duration(milliseconds: 100));
+          salon.update({"swiatlo_lazienka": swiatlolazienka});
+        },
+      );
+
+
+
+
 
        @override
   void deactivate() {

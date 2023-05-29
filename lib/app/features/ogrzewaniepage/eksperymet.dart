@@ -1,24 +1,24 @@
-// mozna chyba usunac
+// // mozna chyba usunac
 
 
 
-class GetDeletedId {
+// class GetDeletedId {
   
-  final bool delete;
-  final int id;
+//   final bool delete;
+//   final int id;
 
-  GetDeletedId({required this.delete, required this.id});
+//   GetDeletedId({required this.delete, required this.id});
   
-factory GetDeletedId.fromRTDB(Map<String, dynamic> data){
-  return GetDeletedId(
-    delete: data['delete'] ?? false,
-    id: data['id'] ?? 0,
-    );
-}
+// factory GetDeletedId.fromRTDB(Map<String, dynamic> data){
+//   return GetDeletedId(
+//     delete: data['delete'] ?? false,
+//     id: data['id'] ?? 0,
+//     );
+// }
   
-String fancyDiscription(){
-  return 'lol $delete';
-}
+// String fancyDiscription(){
+//   return 'lol $delete';
+// }
 
 
-}
+// }

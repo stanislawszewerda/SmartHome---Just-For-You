@@ -64,9 +64,9 @@ factory GetHeatingRule.fromRTDB(Map<String, dynamic> data){
     );
 }
   
-String fancyDiscription(){
-  return 'lol $delete';
-}
+// String fancyDiscription(){
+//   return 'lol $delete';
+// }
 
 
 }
