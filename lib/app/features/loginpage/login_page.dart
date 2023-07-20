@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ///
-/// login stachuf16@gmail.com
-/// haslo stachu14d
+/// login politechnikaopolska@gmail.com
+/// haslo politechnikaopolska
+///
 ///
 
 class LoginPage extends StatefulWidget {

@@ -97,9 +97,6 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
 
   void _activateListeners(bool pn, bool wt, bool sr, bool cz, bool pt, bool so, bool nd) {
 
-    
-    
-
     _streamSubscription =
         database.child('/Grzejnik1').onValue.listen((event) {
       final dynamicValue = event.snapshot.value;
@@ -134,7 +131,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
             ///
             ///TERAZ: wyszukaj wszystkie obowiązujące już zasady (pokaż ich id)
             ///Sprawdz czy jakakolwiek zasada pokrywa się w czasie z tą którą chce dodać użytkownik
-            ///PONIZSZY KOD ZROBIC PETLE PO DNIACH TYGODNIA ZEBY NIE PISAC 7 RAZY TO SAMO!!!
+            ///
 
             List<Map<dynamic, dynamic>> activeMaps =
                 mapsList.where((map) => map['delete'] == false).toList();
@@ -465,55 +462,7 @@ class _AddHeatingRuleState extends State<AddHeatingRule> {
                 ],
               ),
             ),
-            // Container(
-            //   width: 300,
-            //   padding: const EdgeInsets.all(5),
-            //   child: Column(
-            //     children: [
-            //       Row(
-            //         mainAxisAlignment: MainAxisAlignment.center,
-            //         children: [
-            //           Container(
-            //               padding: const EdgeInsets.all(5),
-            //               child: const Text('CZAS START')),
-            //           Container(
-            //               padding: const EdgeInsets.all(3),
-            //               child: Text(start.hour.toString())),
-            //           Container(
-            //               padding: const EdgeInsets.all(5),
-            //               child: const Text('h')),
-            //           Container(
-            //               padding: const EdgeInsets.all(3),
-            //               child: Text(start.minute.toString())),
-            //           Container(
-            //               padding: const EdgeInsets.all(5),
-            //               child: const Text('min')),
-            //         ],
-            //       ),
-            //       Row(
-            //         mainAxisAlignment: MainAxisAlignment.center,
-            //         children: [
-            //           Container(
-            //               padding: const EdgeInsets.all(5),
-            //               child: const Text('CZAS STOP')),
-            //           Container(
-            //               padding: const EdgeInsets.all(5),
-            //               child: Text(end.hour.toString())),
-            //           Container(
-            //               padding: const EdgeInsets.all(5),
-            //               child: const Text('h')),
-            //           Container(
-            //               padding: const EdgeInsets.all(5),
-            //               child: Text(end.minute.toString())),
-            //           Container(
-            //               padding: const EdgeInsets.all(5),
-            //               child: const Text('min')),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
+        
             Container(
                 padding: const EdgeInsets.all(5),
                 child: const Text(
