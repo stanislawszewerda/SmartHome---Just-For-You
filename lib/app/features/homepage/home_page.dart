@@ -10,7 +10,8 @@ class HomePage extends StatelessWidget {
     required this.user,
     Key? key,
   }) : super(key: key);
-
+  //
+//
   final User user;
 
   /// Ponizej lista stringow do przewijania kategorii
