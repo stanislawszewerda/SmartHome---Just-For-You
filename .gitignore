@@ -31,6 +31,10 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+.firebase_options.dart
+#zablokowano plik firebase_options.dart ponieważ zawiera klucze API umożliwiające dostęp do bazy danych
+
+
 
 # Symbolication related
 app.*.symbols
