@@ -40,13 +40,13 @@ Ekran ogrzewania automatycznego umożliwia użytkownikowi dodawanie zasad ogrzew
 
 ![zasady](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/1b1c4076-c213-4032-b7f9-3ecc0116c954)
 
-Na poniższym zrzucie ekranu przedstawiono listę zasad dodanych już przez użytkownika oraz możliwość ich usunięcie.
+Na poniższym zrzucie ekranu przedstawiono listę zasad dodanych już przez użytkownika oraz możliwość ich usunięcia.
 
 ![usuwanie zasad](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/e8bf4800-5c4d-46f1-b262-dd0e900a7ba8)
 
 
 ### 2. Baza danych - Realtime Database
-W udostępnionym projekcie wykorzystana została baza danych Realtime Database. Plikiem koniecznym do działania kodu aplikacji jest plik firebase_options zawierający adres serwera oraz klucze API (w celu zapewnienia bezpieczeństwa danych nie zostały one udostępnione). Poniżej przedstawione więc zostały struktury w bazie danych odpowiedzialne kolejno za sterowanie ręczne (/Salon) i przechowywanie zasad autoamtycznego ogrzewania (/Grzejnik1) na podstawie których można utworzyć identyczną bazę danych.
+W udostępnionym projekcie wykorzystana została baza danych Realtime Database. Plikiem koniecznym do działania kodu aplikacji jest plik firebase_options zawierający adres serwera oraz klucze API (w celu zapewnienia bezpieczeństwa danych nie zostały one udostępnione). Poniżej przedstawione więc zostały struktury w bazie danych odpowiedzialne kolejno za sterowanie ręczne (/Salon) i przechowywanie zasad automatycznego ogrzewania (/Grzejnik1) na podstawie których można utworzyć identyczną bazę danych.
 
 ![struktura1](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/b3e29ae2-05d7-4702-9b28-3a97ef80305e)
 
@@ -67,11 +67,25 @@ Kod programu znaleźć można w pliku ESP CODE tego repozytorium
 
 W ramach projektu utworzony został układ prototypowy utworzony zgodnie z przedstawionym poniżej schematem elektrycznym. 
 
-![schemat 2 dla PCB](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/a0d36acd-3d50-4ed4-afb6-759d4ecf8867)
+![schemat](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/a7486260-c403-45fb-b270-52406d0d755c)
 
 Utworzony został również obwód drukowany widoczny na zdjęciu wykonanego prototypu:
 
 ![układ](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/606ad94b-b42d-4f86-a211-df2f2bb9ccfc)
 
+Na przedstawionym powyżej zdjęciu zostały wyszczególnione następujące elementy: moduł ESP 32(1); żółte diody LED reprezentujące pracę światła w salonie(2), kuchni(3) i łazience(4); czerwona dioda LED reprezentująca pracę ogrzewania(5); niebieska dioda LED reprezentująca pracę alarmu(6); przyciski monostabilne reprezentujące włączanie światła w salonie(7), kuchni(8) i łazience(9); przyciski monostabilne reprezentujące przycisk podnoszenia(10) i opuszczania(11) rolety; serwomotor reprezentujący roletę(12); czujnik ruchu(13); czujnik temperatury(14); rezystor grzejny reprezentujący grzejnik(15); przekaźnik(16); przetwornik piezoelektryczny reprezentujący syrenę alarmową(17)
+
+
+# EN: SmartHome - Just For You
+
+### The shared project was done as part of an engineering thesis!!! 
+### Author: Stanislaw Szewerda
+### Title: "Mobile application to operate a smart home using the Arduino platform".
+### University: Opole University of Technology
+
+The completed project includes a Mobile Application to control a smart home 
+As well as a prototype arrangement of a smart home based on ESP 32 module
+
+Translated with www.DeepL.com/Translator (free version)
 
 
