@@ -116,5 +116,37 @@ The Manual Control screen allows you to turn on and off the lights in the follow
 #### 1.4 Automatic Heating
 The Automatic Heating screen allows the user to add heating rules (i.e., the temperature maintained in the house at appropriate times on appropriate days of the week). The interface for adding a rule is shown in the following picture.
 
+![zasady](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/1b1c4076-c213-4032-b7f9-3ecc0116c954)
+
+The following screenshot shows the list of rules already added by the user and the possibility to delete them.
+
+![usuwanie zasad](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/e8bf4800-5c4d-46f1-b262-dd0e900a7ba8)
 
 
+### 2. Database - Realtime Database
+The Realtime Database is used in the project provided. The file necessary for the application code to work is the firebase_options file containing the server address and API keys (to ensure the security of the data, they have not been shared). Thus, the following are the structures in the database responsible, in turn, for manual control (/Salon) and storage of automatic heating rules (/Heater1) based on which an identical database can be created.
+
+![struktura1](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/b3e29ae2-05d7-4702-9b28-3a97ef80305e)
+
+![salon](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/5acdf1b7-0822-48b0-bbb2-f0fed07570db)
+
+![Grzejnik1](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/60945b42-36d0-4e59-abe4-67bd02505b29)
+
+Each of the following structures from rule1 to rule10 contains the same structure shown below. The "id" value is equal to the rule number.
+
+![Zasada1](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/92162234-e442-4cec-bee1-3e85dd7c3de3)
+
+### 3. prototype layout of the smart home (ESP 32 module).
+
+![PLAN DOMU 3](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/4b5b0bfd-417d-42e6-b296-5ab6871f830b)
+
+The ESP 32 module was programmed using the Arduino IDE environment. 
+The program code can be found in the ESP CODE file of this repository
+
+The project included a prototype circuit created according to the electrical schematic shown below. 
+
+![schemat](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/a7486260-c403-45fb-b270-52406d0d755c)
+
+The printed circuit shown in the photo of the completed prototype was also created:
+
+![układ](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/606ad94b-b42d-4f86-a211-df2f2bb9ccfc)
