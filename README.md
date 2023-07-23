@@ -86,6 +86,35 @@ Na przedstawionym powyżej zdjęciu zostały wyszczególnione następujące elem
 The completed project includes a Mobile Application to control a smart home 
 As well as a prototype arrangement of a smart home based on ESP 32 module
 
-Translated with www.DeepL.com/Translator (free version)
+### 1. mobile application
+
+The .apk installation file of the application can be downloaded here: here link to google drive
+
+In order to fully use the application, you must log in with the following credentials!!!:
+
+email: test@gmail.com 
+
+password: test_application
+
+#### 1.1 Login Screen
+The login screen allows you to log in with your email address and password. 
+Full access to the database and correct operation of the application is ensured only by logging in with the 
+with the data shown above.
+
+![logowanie](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/7a28fe77-9eaf-41c2-9211-8c31973a8945)
+
+#### 1.2 Home Screen
+The main screen in the current version allows you to go to the Automatic Heating and Manual Control interface (highlighted in red).
+
+![ekranglowny](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/870468eb-b494-4118-8a0a-d01fa9040f43)
+
+#### 1.3 Manual Control
+The Manual Control screen allows you to turn on and off the lights in the following rooms, turn on the alarm, control the roller shutter, read the temperature, alarm operating status and the heater
+
+![recznesterowanie](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/608ba090-f017-4663-8d9d-73a8bb542208)
+
+#### 1.4 Automatic Heating
+The Automatic Heating screen allows the user to add heating rules (i.e., the temperature maintained in the house at appropriate times on appropriate days of the week). The interface for adding a rule is shown in the following picture.
+
 
 
