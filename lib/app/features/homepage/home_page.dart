@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
   }) : super(key: key);
   //
 //
+//
   final User user;
 
   /// Ponizej lista stringow do przewijania kategorii
