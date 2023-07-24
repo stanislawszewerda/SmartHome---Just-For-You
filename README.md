@@ -150,3 +150,5 @@ The project included a prototype circuit created according to the electrical sch
 The printed circuit shown in the photo of the completed prototype was also created:
 
 ![układ](https://github.com/stanislawszewerda/SmartHome---Just-For-You/assets/111526111/606ad94b-b42d-4f86-a211-df2f2bb9ccfc)
+
+In the picture shown above, the following components are detailed: ESP 32 module(1); yellow LEDs representing light operation in the living room(2), kitchen(3) and bathroom(4); red LED representing heating operation(5); blue LED representing alarm operation(6); monostable buttons representing light switching in the living room(7), kitchen(8) and bathroom(9); monostable buttons representing the button for raising(10) and lowering(11) the roller shutter; servomotor representing the roller shutter(12); motion sensor(13); temperature sensor(14); heating resistor representing the heater(15); relay(16); piezo transducer representing the alarm siren(17)
