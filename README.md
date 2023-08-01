@@ -10,7 +10,7 @@ oraz układ prototypowy inteligentnego domu opartego na module ESP 32
 
 ### 1. Aplikacja mobilna
 
-Plik instalacyjny .apk aplikacji można pobrać w tym miejscu: tutaj link do dysku google
+Plik instalacyjny .apk aplikacji można pobrać w tym miejscu: https://drive.google.com/file/d/1vOkDtuvQCKYAruDxff40_tm17dcYz2f_/view?usp=sharing
 
 Aby móc w pełni korzytać z aplikacji należy zalogować się następującymi danymi!!!:
 
@@ -90,7 +90,7 @@ As well as a prototype arrangement of a smart home based on ESP 32 module
 
 ### 1. mobile application
 
-The .apk installation file of the application can be downloaded here: here link to google drive
+The .apk installation file of the application can be downloaded here: https://drive.google.com/file/d/1vOkDtuvQCKYAruDxff40_tm17dcYz2f_/view?usp=sharing
 
 In order to fully use the application, you must log in with the following credentials!!!:
 
