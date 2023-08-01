@@ -1,4 +1,4 @@
-
+// do programowania modułu ESP 32 wykorzystano Arduino IDE
 #include <dummy.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
